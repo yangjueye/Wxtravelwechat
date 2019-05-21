@@ -1,0 +1,102 @@
+{
+  "pages": [
+    "pages/autophoto/autophoto",
+    "pages/phone/phone",
+    "pages/Mine/Mine",
+      "pages/sos/sos",
+    "pages/weather/weather",
+    "pages/Index/Index",
+    "pages/carnum/carnum",
+   "pages/compass/compass",
+    "pages/regeo/regeo",
+    "pages/timeroad/timeroad",
+    "pages/Rounds/Rounds",
+    "pages/poi/poi",
+   
+    "pages/searchrounds/searchrounds",
+    "pages/Voice/Voice",
+    "pages/History/History",
+    "pages/News/News",
+    "pages/logs/logs",
+    "pages/Ambassador/Ambassador",
+    "pages/StarsRank/StarsRank",
+    "pages/bus/bus",
+    "pages/car/car",
+    "pages/gas/gas",
+    "pages/charge/charge",
+    "pages/shop/shop",
+    "pages/food/food",
+    "pages/pharmacy/pharmacy",
+    "pages/wc/wc",
+    "pages/location/location",
+    "pages/location-detail/location-detail",
+   "pages/roadtime/roadtime",
+    "pages/author/author",
+    "pages/panoramicrotate/panoramicrotate",
+    "pages/panoramicmap/panoramicmap",
+    "pages/inputtips/input",
+   "pages/travel/travel",
+   "pages/subwaymap/subwaymap",
+   "pages/roadpredict/roadpredict",
+   "pages/indoormap/indoormap",
+   "pages/destination/destination",
+   "pages/destinationsearch/destinationsearch",
+ "pages/soscall/soscall",
+ "pages/soslocation/soslocation",
+ "pages/sosphoto/sosphoto",
+
+ "pages/addpeople/addpeople",
+    "pages/Use/Use"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "iTravel智能出行",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#626567",
+    "selectedColor": "#FFA54F",
+    "backgroundColor": "#FBFBFB",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/weather/weather",
+        "text": "天气",
+        "iconPath": "images/sun.png",
+        "selectedIconPath": "images/sun_focus.png"
+      },
+      {
+        "pagePath": "pages/Index/Index",
+        "text": "传音",
+        "iconPath": "images/data.png",
+        "selectedIconPath": "images/data_focus.png"
+      },
+      {
+        "pagePath": "pages/travel/travel",
+        "text": "地图",
+        "iconPath": "images/local.png",
+        "selectedIconPath": "images/local_focus.png"
+      },
+      {
+        "pagePath": "pages/sos/sos",
+        "text":"应急",
+        "iconPath": "images/remind.png",
+        "selectedIconPath": "images/remind_focus.png"
+      },
+      {
+        "pagePath": "pages/Mine/Mine",
+        "text": "我的",
+        "iconPath": "images/account_focus.png",
+        "selectedIconPath": "images/account.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "Just Do It!"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

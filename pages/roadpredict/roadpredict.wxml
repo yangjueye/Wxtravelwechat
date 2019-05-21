@@ -1,0 +1,2 @@
+<!--pages/roadpredict/roadpredict.wxml-->
+<web-view src="{{url}}"></web-view>

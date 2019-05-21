@@ -1,0 +1,30 @@
+
+<view class="account-wrapper">
+<view class="profile" catchtap="toSoscall">
+      <image class="title-arrow" src="/images/dianhua.png"></image>
+      <view class="profile-item">常用求助电话</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+<view class="profile" catchtap="toSoslocation">
+      <image class="title-arrow" src="/images/jinji.png"></image>
+      <view class="profile-item">紧急定位发送</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+  <view class="profile" catchtap="toSosphoto">
+      <image class="title-arrow" src="/images/zhuapai.png"></image>
+      <view class="profile-item">智能抓拍识别分析</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+   <view class="profile" catchtap="toCompass">
+      <image class="title-arrow" src="/images/shouji.png"></image>
+      <view class="profile-item">罗盘</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+
+    <view class="profile" catchtap="toPhone">
+      <image class="title-arrow" src="/images/shouji.png"></image>
+      <view class="profile-item">手机防丢</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+
+</view>

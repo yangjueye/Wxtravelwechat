@@ -1,0 +1,25 @@
+<view>
+  <view class="ques-wrapper" >
+    <view class="ques-info">
+      <view class="ques-sec">
+        <view class="ques-user">#爵爷传音#</view>
+      </view>
+    </view>
+      <text decode="{{true}}" class="ques-account">
+      尊敬的 &nbsp;{{userInfo.nickName}}：您好！\n
+       &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;{{news}}
+    </text> 
+     <view class="ans-wrapper">
+      <view  wx:for="{{imgalist}}"wx:for-item="image"class="previewimg">  
+  <image src="{{image}}" data-src="{{image}}" bindtap="previewImage" class='img'></image>  
+</view>  
+      <toast hidden="{{hiddenToast}}" duration="1000" bindchange="toastHidden">爵爷传音感谢您的支持！</toast>
+    </view>
+    <view class="quiz-wrapper">
+      <form bindsubmit="bindSubmit">
+        <button class="submit" form-type="submit">我已知晓</button>
+      </form>
+    </view>
+  </view>
+  
+</view>

@@ -1,0 +1,2 @@
+<!--pages/panoramicmap/panoramicmap.wxml-->
+<web-view src="{{url}}"></web-view>

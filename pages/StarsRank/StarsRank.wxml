@@ -1,0 +1,4 @@
+<view class="page-section page-section-gap"style="text-align: center;"wx:for="{{items}}"wx:for-index="index"wx:for-item="item">
+<audio style="text-align: left"src="{{item.src}}"poster="{{item.poster}}"author="{{item.author}}"name="{{item.name}}"action="{{item.action}}"
+controls></audio>
+</view>

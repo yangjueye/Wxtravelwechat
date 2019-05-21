@@ -1,0 +1,66 @@
+<view class="weather" style="background-image: url('/../images/weather2.jpg');height:100%;width:100%">
+<view class="city"> 
+  
+  <text>{{currentCity}}  
+  </text> 
+  </view>
+
+  <view class="date"> 
+  <text>{{date}}  
+  </text> 
+  </view>
+
+ <view class="temperature"> 
+  <text>{{temperature}}  
+  </text> 
+  </view>
+  <view class="pm25"> 
+  <text>{{pm25}} 
+  </text> 
+  </view>
+ <image class='background-imageday' src="{{dayurl}}" ></image>
+ <image class='background-imagenight' src="{{nighturl}}" ></image>
+  <view class="weatherDesc"> 
+ 
+  <text>{{weatherDesc}}
+  </text> 
+  
+  </view>
+ 
+   <view class="wind"> 
+  <text>{{wind}}
+  </text> 
+  </view>
+  <view class="clothes"> 
+  <text>{{clothes}}  
+  </text> 
+  </view>
+   <view class="car">  
+  <text>{{car}}
+  </text> 
+  </view>
+  <view class="cold"> 
+  <text>{{cold}}  
+  </text> 
+  </view>
+  <view class="exercise"> 
+  <text>{{exercise}}  
+  </text> 
+  </view>
+  <view class="light"> 
+  <text>{{light}}  
+  </text> 
+  </view>
+  
+ 
+  <view class='tomorrow'>{{tomorrow}}
+  </view>
+
+  <view class='day_after_tomorrow'>{{day_after_tomorrow}}
+  </view>
+
+  <view class='in_3_days'>{{in_3_days}}
+  </view>
+    
+</view>
+

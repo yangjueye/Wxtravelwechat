@@ -1,0 +1,8 @@
+
+<view class="road">
+
+<view class="content">
+  <text>{{roadData}}</text>
+  </view>
+  <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>

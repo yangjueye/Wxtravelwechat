@@ -1,0 +1,46 @@
+<view>{{name}}</view>
+
+<swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">  
+  <block wx:for="{{imgUrls}}">  
+    <swiper-item>  
+      <navigator url="{{item.link}}" hover-class="navigator-hover">  
+      <image src="{{item.url}}" class="slide-image" width="355" height="150"/>  
+      </navigator>   
+    </swiper-item>  
+  </block>  
+</swiper>
+<view class="itemView" style='margin-top:6%'>
+   <view style='border-top-left-radius:8px;border-top-right-radius:8px;width:100%;height:38px;display:inline-block;background:#fff;'>
+    <view style='width:10%;display:inline-block;height:100%;'><image src='/images/mine1.png' style='display:inline;' mode="aspectFit"></image></view>
+<input style='width:80%;display:inline-block;height:100%;border: 3rpx solid red;'class="input" value="{{userphone}}"type="number" placeholder="请输入她/他手机号" placeholder-style=
+"color:red" bindinput="userPhoneInput" auto-focus/>
+<button style="margin-top:4%;display:flex; justify-content:center;width:50%;background-color:#FF6600"type="primary" bindtap="calling" size="mini">一键呼叫她/他</button>
+
+</view>
+<text class="h1">{{textData.name}}</text>
+    <text>{{textData.desc}}</text>
+</view>
+<view class="conts">
+    <textarea style='border: 3rpx solid red;'class="areas" placeholder='此时此刻是否一个人在出行的旅途感到寂寞？脑海里有没有浮现你想的人或者挂念你的人？请让爵爷带你千里传音吧！' minlength="{{min}}" maxlength="{{max}}" value="{{usercontens}}" bindinput="userContentsInput"> 
+        <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text>
+        <text class="hint">{{texts}}</text>
+    </textarea>
+    <button style="margin-top:6%;margin-left:5%;width:35%;background-color:#FF6600" type='primary' size="mini"  bindtap="clearall">
+  重置清空
+</button>
+<button style="margin-top:6%;margin-left:19%;width:35%;background-color:#FF6600"  type='primary'  bindtap="toVoice" size="mini">
+  录音
+</button>
+</view>
+<button style="top:20rpx;background-color:#3CB371;width:90%;"  type='primary' disabled='{{sms}}' bindtap="orderMeeting">
+  匿名短信
+</button>
+
+<button style="top:40rpx;background-color:#3CB371;width:90%;" type='primary' disabled='{{smsvoice}}'  bindtap="orderMeetingVoice">
+  匿名短信+留声
+</button>
+
+
+
+
+

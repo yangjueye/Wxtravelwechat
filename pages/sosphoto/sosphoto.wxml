@@ -1,0 +1,39 @@
+
+<view class="account-wrapper">
+<view class="profile" catchtap="toSoscall">
+      <image class="title-arrow" src="/images/mudidi.png"></image>
+      <view class="profile-item">人体分析</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+<view class="profile" catchtap="toSoslocation">
+      <image class="title-arrow" src="/images/fujin.png"></image>
+      <view class="profile-item">人流量统计</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+  <view class="profile" catchtap="toCarnum">
+      <image class="title-arrow" src="/images/yuce.png"></image>
+      <view class="profile-item">车牌号识别</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+  <view class="profile" catchtap="toSosphoto">
+      <image class="title-arrow" src="/images/yuce.png"></image>
+      <view class="profile-item">驾驶行为分析</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+  
+    <view class="profile" catchtap="toPhone">
+      <image class="title-arrow" src="/images/indoor.png"></image>
+      <view class="profile-item">地标识别</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+ <view class="profile" catchtap="toPhone">
+      <image class="title-arrow" src="/images/indoor.png"></image>
+      <view class="profile-item">植物识别</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+   <view class="profile" catchtap="toPhone">
+      <image class="title-arrow" src="/images/indoor.png"></image>
+      <view class="profile-item">动物识别</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+</view>

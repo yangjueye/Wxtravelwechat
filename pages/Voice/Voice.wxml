@@ -1,0 +1,11 @@
+
+
+
+
+<button bindtap="start" class='btn'style="width:400rpx;" >开始录音</button>
+<button bindtap="stop" style="width:400rpx;margin-top:15%" class='btn'>停止录音</button>
+<button bindtap="play" style="width:400rpx;margin-top:20%" class='btn'>播放录音</button>
+<text style="color:red">温馨提示：\n 
+点击开始录音按钮后请对她/他说出想说的话，时间限制为一分钟，屏幕右上角会有小型麦克风图标闪烁，到达一分钟时闪烁图标消失，一分钟之内说完并必须点击停止按钮，否则刚才录音文件会失败！点击播放按钮可以听到自己刚才录音，确认无误以后点击保存录音按钮！</text>
+
+<button bindtap="upload" style="margin-top:25%"  class='btn'>保存录音</button>

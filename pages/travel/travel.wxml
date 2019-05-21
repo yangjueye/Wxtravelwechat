@@ -1,0 +1,29 @@
+
+<view class="account-wrapper">
+<view class="profile" catchtap="toDestinationsearch">
+      <image class="title-arrow" src="/images/mudidi.png"></image>
+      <view class="profile-item">目的地查询</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+<view class="profile" catchtap="toRounds">
+      <image class="title-arrow" src="/images/fujin.png"></image>
+      <view class="profile-item">附近</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+  <view class="profile" catchtap="toRoadpredict">
+      <image class="title-arrow" src="/images/yuce.png"></image>
+      <view class="profile-item">实时路况查询</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+  <view class="profile" catchtap="toSubwaymap">
+      <image class="title-arrow" src="/images/subway.png"></image>
+      <view class="profile-item">地铁</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+    <view class="profile" catchtap="toIndoormap">
+      <image class="title-arrow" src="/images/indoor.png"></image>
+      <view class="profile-item">室内地图</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+
+</view>

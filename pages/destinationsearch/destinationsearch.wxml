@@ -1,0 +1,2 @@
+<!--pages/destinationsearch/destinationsearch.wxml-->
+<web-view src="{{url}}"></web-view>
