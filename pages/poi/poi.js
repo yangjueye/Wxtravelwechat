@@ -192,7 +192,7 @@ Page({
   onShareAppMessage() {
     return {
       title: 'Let us go!',
-      desc: '跟着爵爷走，想找都会有！',
+      desc: '皮皮虾我们走，想找都会有！',
       path: 'pages/poi/poi'
     }
   }

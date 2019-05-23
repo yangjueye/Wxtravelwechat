@@ -1,0 +1,17 @@
+/* pages/portraitsegmentation/portraitsegmentation.wxss */
+.tiqu 
+{ 
+width:30%;
+left:0 ;
+color:green; 
+position:fixed; 
+bottom:0; 
+} 
+.baocun 
+{ 
+width:30%;
+right:0 ;
+color:green; 
+position:fixed; 
+bottom:0; 
+} 

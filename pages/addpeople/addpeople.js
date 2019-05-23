@@ -1,56 +1,66 @@
-const app = getApp()
+
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    userInfo: {},
-    counting: false//倒计时
+
   },
-  onLoad: function () {
-    var that=this;
-    that.daojishi();//一进来就拍照倒计时
-    this.ctx = wx.createCameraContext()//创建摄像头对象
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
   },
-  //倒计时
-  daojishi: function () {
-    var that = this;
-    
-      //开始倒计时5秒
-      countDown(that, 5);
-    
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 })
-//倒计时函数 在page外
-
-function countDown(that, count) {
-  if (count == 0) {
-    //等于0时拍照 
-    that.ctx.takePhoto({
-      quality: 'high',
-      success: (res) => {
-        that.setData({
-          src: res.tempImagePath
-        })
-        wx.showToast({
-          title: '拍照完成',
-        })
-      }
-    })
-    that.setData({
-      counting: false
-    })
-    return;
-  }
-  wx.showLoading({//加载时显示倒计时
-    title: '拍照倒计时' + count + '秒',
-  })
-
-  setTimeout(function () {
-    wx.hideLoading()
-  }, 1000)
-  that.setData({
-    counting: true,
-  })
-  setTimeout(function () {
-    count--;
-    countDown(that, count);
-  }, 1000);
-}

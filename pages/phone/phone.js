@@ -1,69 +1,81 @@
 // pages/phone/phone.js
 const innerAudioContext = wx.createInnerAudioContext()
 var status=false;
-
+var time = null;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    alpha: '0',
-    screen: '正面',
+    beta: '0',
+    screen: '正北',
     imagePath:''
+  },
+  //定时器拍照
+  setTime: function () {
+    let that = this
+    let ctx = wx.createCameraContext()
+    time = setInterval(function () {
+      if (Math.round(Math.random()) == 1) {
+       // console.log('拍照')
+        //拍照
+        ctx.takePhoto({
+          quality: 'high',
+          success: (res) => {
+            console.log(res.tempImagePath)
+            that.setData({
+              imagePath: res.tempImagePath
+            })
+           
+          }
+        })
+      }
+    }, 1000 * 2) //循环间隔 单位ms
   },
   //开始监听屏幕方向
   startScreenClick: function () {
     var that =this;
+    that.setTime();
+    that.setscreenbright();
     wx.startDeviceMotionListening({
       success: function (e) {
        // console.log(e);
       }
     });
-     wx.startSoterAuthentication({
-      requestAuthModes: ['fingerPrint'],
-      challenge: '123456',
-      authContent: '请用指纹解除警报',
-      success(res) {
-       // console.log(res)
-        that.endScreenClick();
-      },
-       fail(res) {
-         const ctx = wx.createCameraContext()
-         ctx.takePhoto({
-           quality: 'high',
-           success: (res) => {
-             that.setData({
-               imagePath: res.tempImagePath
-             })
-           },
-           fail: (res) => {
-             console.log(res)
-           }
-         })
-       }
-    });
+    //  wx.startSoterAuthentication({
+    //   requestAuthModes: ['fingerPrint'],
+    //   challenge: '123456',
+    //   authContent: '请用指纹解除警报',
+    //   success(res) {
+    //    // console.log(res)
+    //     that.endScreenClick();
+    //   },
+    //    fail(res) {
+    //      that.setTime();
+    //    }
+    // });
   },
   //结束监听屏幕方向
   endScreenClick: function () {
     var that=this;
     status = false; 
     that.audioPause();
+  clearInterval(time);
     wx.stopDeviceMotionListening({
       success: function (e) {
        
       },
       fail(e) {
     //    console.log(e);
+        that.endScreenClick();
       }
     })
   },
   //设置屏幕亮度
   setscreenbright(){
     wx.setScreenBrightness({
-     
-        value: 0,    //屏幕亮度值，范围 0~1，0 最暗，1 最亮
-      
+        value: 0,    //屏幕亮度值，范围 0~1，0 最暗，1 最亮  
     })
    
     // wx.getScreenBrightness({
@@ -78,8 +90,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.ctx = wx.createCameraContext()
-  //  var that = this;
+   
+    var that = this;
 
     // alpha  number  当 手机坐标 X / Y 和 地球 X / Y 重合时，绕着 Z 轴转动的夹角为 alpha，范围值为[0, 2 * PI) 。逆时针转动为正。
     wx.onDeviceMotionChange(function (res) {
@@ -94,42 +106,37 @@ Page({
       //   that.setData({ screen: '反面' })
       // } else {
       //   that.setData({ screen: '正面' })
-      //   wx.vibrateLong()
       // }
+      if (15 <= alpha && alpha <= 75) {
+        that.setData({ screen: '东北' })
+      } else if (75 < alpha && alpha < 105) {
+        that.setData({ screen: '正东' })
+      } else if (105 <= alpha && alpha <= 165) {
+        that.setData({ screen: '东南' }) 
+      } else if (165 < alpha && alpha < 195) {
+        that.setData({ screen: '正南' }) 
+      } else if (195 <= alpha && alpha <= 255) {
+        that.setData({ screen: '西南' }) 
+      } else if (255 < alpha && alpha < 285) {
+        that.setData({ screen: '正西' })
+      } else if (285 <= alpha && alpha <= 345) {
+        that.setData({ screen: '西北' }) 
+      } else {
+        that.setData({ screen: '正北' }) 
+      }
       if (beta<110 && beta>90){
-        //  this.endScreenClick()
-        //  wx.vibrateShort({
-        //      success: function () {
-        //        // console.log(e);
-        //      }
-        //    })
         status=true;
-       
-
        }
       if (status) {
         if (beta < 40 ) { that.audioPlay(); wx.vibrateLong(); }
-    //     else{
-    //         wx.startSoterAuthentication({
-    //   requestAuthModes: ['fingerPrint'],
-    //   challenge: '123456',
-    //   authContent: '请用指纹解除警报',
-    //   success(res) {
-    //     status = false; that.audioPause();that.endScreenClick();
-    //   },
-    //    fail(res) {
-
-
-    //    }
-    // });
-    //      }
       }
       // console.log('alpha'+alpha)
-       console.log('beta'+beta)
+      // console.log('beta'+beta)
       // console.log('gamma'+gamma)
-      // this.setData({
-      //   alpha: beta
-      // })
+       that.setData({
+         alpha:alpha,
+         beta: beta
+       })
     })
   },
 
@@ -137,12 +144,9 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-   
-  
   },
- 
+  //警报声
   audioPlay: function () {
-    
     innerAudioContext.autoplay = true
     innerAudioContext.src = 'music/sos.mp3'
     innerAudioContext.volume=1
@@ -205,18 +209,3 @@ Page({
 
   }
 })
-function takephoto(that) {
-  
-
-  that.ctx.takePhoto({
-    quality: 'high',
-    success: (res) => {
-      that.setData({
-        imagePath: res.tempImagePath
-      })
-    },
-    fail: (res) => {
-      console.log(res)
-    }
-  })
-}

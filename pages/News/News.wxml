@@ -2,7 +2,7 @@
   <view class="ques-wrapper" >
     <view class="ques-info">
       <view class="ques-sec">
-        <view class="ques-user">#爵爷传音#</view>
+        <view class="ques-user">#ITravel智能出行家#</view>
       </view>
     </view>
       <text decode="{{true}}" class="ques-account">
@@ -13,7 +13,7 @@
       <view  wx:for="{{imgalist}}"wx:for-item="image"class="previewimg">  
   <image src="{{image}}" data-src="{{image}}" bindtap="previewImage" class='img'></image>  
 </view>  
-      <toast hidden="{{hiddenToast}}" duration="1000" bindchange="toastHidden">爵爷传音感谢您的支持！</toast>
+      <toast hidden="{{hiddenToast}}" duration="1000" bindchange="toastHidden">感谢您的支持！</toast>
     </view>
     <view class="quiz-wrapper">
       <form bindsubmit="bindSubmit">

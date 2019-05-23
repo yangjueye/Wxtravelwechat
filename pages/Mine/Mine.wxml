@@ -13,7 +13,7 @@
      <view class="usermotto" >
     <button style="left:-100rpx;top:10rpx"type="warn" bindtap="signtocash" size="mini">打卡兑换</button> 
     <button style="right:-100rpx;top:10rpx"type="warn" bindtap="startocash" size="mini">增加金币</button> 
-      <toast  hidden="{{hiddenToast}}" duration="3000" bindchange="toastHidden"><text>连续签到7天可打卡兑换增加1次传音次数，连续签到次数越多增加传音数越多！幸运星兑换请联系客服！</text></toast>
+      <toast  hidden="{{hiddenToast}}" duration="3000" bindchange="toastHidden"><text>连续签到7天可兑换增加1枚金币，连续签到天数越多增加金币越多！幸运星兑换请联系客服！</text></toast>
     </view>
     <view class="usermotto" >
     <text class="user-motto">{{mottoa}}{{userInfo.nickName}}\n</text>

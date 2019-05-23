@@ -12,7 +12,7 @@
   </view>
   <view class="profile" catchtap="toRoadpredict">
       <image class="title-arrow" src="/images/yuce.png"></image>
-      <view class="profile-item">实时路况查询</view>
+      <view class="profile-item">城市路况查询</view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
   <view class="profile" catchtap="toSubwaymap">

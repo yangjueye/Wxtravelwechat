@@ -1,4 +1,4 @@
-<view class="weather" style="background-image: url('/../images/weather2.jpg');height:100%;width:100%">
+<view class="weather" >
 <view class="city"> 
   
   <text>{{currentCity}}  
@@ -19,6 +19,7 @@
   </text> 
   </view>
  <image class='background-imageday' src="{{dayurl}}" ></image>
+
  <image class='background-imagenight' src="{{nighturl}}" ></image>
   <view class="weatherDesc"> 
  

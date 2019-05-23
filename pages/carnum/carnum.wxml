@@ -11,7 +11,7 @@
 <image mode="widthFix" src="{{imagePath}}"></image>
 <button type="primary" bindtap="CarOcr" disabled='{{disabled}}'>车牌号识别</button>
 
-<view class="content"> 
-  <text decode='true'>识别结果：\n &nbsp; {{ocrData}} </text>
+<view hidden="{{hidden}}" class="content"> 
+  <text decode='true'style='color:red'>识别结果：\n &nbsp; {{ocrData}} </text>
   </view>
-<button type="primary" bindtap="Location">发送</button>
+<!-- <button type="primary" bindtap="Location">发送</button> -->

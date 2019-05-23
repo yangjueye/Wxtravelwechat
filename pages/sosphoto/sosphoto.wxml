@@ -1,39 +1,73 @@
 
 <view class="account-wrapper">
-<view class="profile" catchtap="toSoscall">
-      <image class="title-arrow" src="/images/mudidi.png"></image>
+<view class="profile" catchtap="toHumananalysis">
+       <image class="title-arrow" src="/images/renti.png"></image>
       <view class="profile-item">人体分析</view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
-<view class="profile" catchtap="toSoslocation">
-      <image class="title-arrow" src="/images/fujin.png"></image>
+  <view class="profile" catchtap="toPortraitsegmentation">
+      <image class="title-arrow" src="/images/rxfg.png"></image>
+      <view class="profile-item">人像分割</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+<view class="profile" catchtap="toHumannumber">
+      <image class="title-arrow" src="/images/xingren.png"></image>
       <view class="profile-item">人流量统计</view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
+   <view class="profile" catchtap="toCartype">
+      <image class="title-arrow" src="/images/cxsb.png"></image>
+      <view class="profile-item">车型识别</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
   <view class="profile" catchtap="toCarnum">
-      <image class="title-arrow" src="/images/yuce.png"></image>
+      <image class="title-arrow" src="/images/chep.png"></image>
       <view class="profile-item">车牌号识别</view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
-  <view class="profile" catchtap="toSosphoto">
-      <image class="title-arrow" src="/images/yuce.png"></image>
+  <view class="profile" catchtap="toDriveanalysis">
+      <image class="title-arrow" src="/images/jiashi.png"></image>
       <view class="profile-item">驾驶行为分析</view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
-  
-    <view class="profile" catchtap="toPhone">
-      <image class="title-arrow" src="/images/indoor.png"></image>
+     <view class="profile" catchtap="toGeneralobject">
+      <image class="title-arrow" src="/images/tywtsb.png"></image>
+      <view class="profile-item">通用物体和场景识别</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+    <view class="profile" catchtap="toLandmark">
+      <image class="title-arrow" src="/images/dibiao.png"></image>
       <view class="profile-item">地标识别</view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
- <view class="profile" catchtap="toPhone">
-      <image class="title-arrow" src="/images/indoor.png"></image>
+ <view class="profile" catchtap="toPlant">
+      <image class="title-arrow" src="/images/zhiwu.png"></image>
       <view class="profile-item">植物识别</view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
-   <view class="profile" catchtap="toPhone">
-      <image class="title-arrow" src="/images/indoor.png"></image>
+   <view class="profile" catchtap="toAnimal">
+      <image class="title-arrow" src="/images/dongwu.png"></image>
       <view class="profile-item">动物识别</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+    <view class="profile" catchtap="toFruitvegetable">
+      <image class="title-arrow" src="/images/gssb.png"></image>
+      <view class="profile-item">果蔬识别</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+    <view class="profile" catchtap="toDishes">
+      <image class="title-arrow" src="/images/cpsb.png"></image>
+      <view class="profile-item">菜品识别</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+    <view class="profile" catchtap="toRedwine">
+      <image class="title-arrow" src="/images/hjsb.png"></image>
+      <view class="profile-item">红酒识别</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
+    <view class="profile" catchtap="toGoodsratio">
+      <image class="title-arrow" src="/images/hbsb.png"></image>
+      <view class="profile-item">货币识别</view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
 </view>

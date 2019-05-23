@@ -1,8 +1,6 @@
 var util = require('../../utils/util.js')
 const app = getApp()
 var ip = app.globalData.ip
-
-
 Page({
   data: {
     feed: [],

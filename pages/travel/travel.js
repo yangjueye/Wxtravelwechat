@@ -51,7 +51,7 @@ Page({
   },
   toDestinationsearch: function (e) {
     wx.navigateTo({
-      url: '../destinationsearch/destinationsearch',
+      url: '../regeo/regeo',
     })
   },
   toRounds: function (e) {

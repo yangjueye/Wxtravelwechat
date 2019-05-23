@@ -10,7 +10,8 @@ Page({
   data: {
     imagePath:'',
     ocrData:'',
-    disabled:''
+    disabled:'',
+    hidden:'true'
   },
 
   /**
@@ -80,13 +81,15 @@ Page({
       formData:
       {
         openid: wx.getStorageSync('openid'),
-        ip:ip
+        ip:ip,
+        ocrtype:'carnum'
       },
       success: function (res) {
         console.log(res.data);
         that.setData({
           disabled: '',
-          ocrData:res.data
+          ocrData:res.data,
+          hidden:''
         })
       },
       fail: function (res) {
@@ -103,7 +106,7 @@ Page({
     else{
       wx.showModal({
         title: '温馨提示',
-        content: '亲，请您先登录爵爷才能识别车牌号！',
+        content: '亲，请您先登录才能识别车牌号！',
         success: function (res) {
           if (res.confirm) {//这里是点击了确定以后
             wx.switchTab({

@@ -1,18 +1,31 @@
 {
   "pages": [
-    "pages/autophoto/autophoto",
-    "pages/phone/phone",
-    "pages/Mine/Mine",
-      "pages/sos/sos",
     "pages/weather/weather",
+      "pages/regeo/regeo",
+    "pages/ispoi/ispoi",
+    "pages/inputtips/input",
+   
+    "pages/travel/travel",
+   
+    "pages/navigation_car/navigation",
+    
+  
+ 
+   
+    "pages/portraitsegmentation/portraitsegmentation",
+    "pages/sosphoto/sosphoto",
+    "pages/sos/sos",
+    "pages/phone/phone",
+      "pages/autophoto/autophoto",
+    "pages/Mine/Mine",
+  
     "pages/Index/Index",
     "pages/carnum/carnum",
    "pages/compass/compass",
-    "pages/regeo/regeo",
+    
     "pages/timeroad/timeroad",
     "pages/Rounds/Rounds",
     "pages/poi/poi",
-   
     "pages/searchrounds/searchrounds",
     "pages/Voice/Voice",
     "pages/History/History",
@@ -34,8 +47,8 @@
     "pages/author/author",
     "pages/panoramicrotate/panoramicrotate",
     "pages/panoramicmap/panoramicmap",
-    "pages/inputtips/input",
-   "pages/travel/travel",
+    
+ 
    "pages/subwaymap/subwaymap",
    "pages/roadpredict/roadpredict",
    "pages/indoormap/indoormap",
@@ -43,15 +56,33 @@
    "pages/destinationsearch/destinationsearch",
  "pages/soscall/soscall",
  "pages/soslocation/soslocation",
- "pages/sosphoto/sosphoto",
-
+"pages/humananalysis/humananalysis",
+"pages/humannumber/humannumber",
+"pages/driveanalysis/driveanalysis",
+"pages/landmark/landmark",
+"pages/plant/plant",
+"pages/animal/animal",
  "pages/addpeople/addpeople",
+ 
+ "pages/generalobject/generalobject",
+ "pages/fruitvegetable/fruitvegetable",
+ "pages/dishes/dishes",
+ "pages/redwine/redwine",
+ "pages/goodsratio/goodsratio",
+ "pages/cartype/cartype",
+ "pages/navigation_bus/navigation",
+
+ "pages/navigation_ride/navigation",
+ "pages/navigation_walk/navigation",
+  "pages/navigation_car_detail/navigation",
+  "pages/navigation_ride_detail/navigation",
+  "pages/navigation_walk_detail/navigation",
     "pages/Use/Use"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "iTravel智能出行",
+    "navigationBarTitleText": "ITravel智能出行家",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },

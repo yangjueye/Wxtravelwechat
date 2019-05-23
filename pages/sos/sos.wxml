@@ -16,7 +16,7 @@
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
    <view class="profile" catchtap="toCompass">
-      <image class="title-arrow" src="/images/shouji.png"></image>
+      <image class="title-arrow" src="/images/lp.png"></image>
       <view class="profile-item">罗盘</view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>

@@ -1,0 +1,18 @@
+<!--pages/carnum/carnum.wxml-->
+<camera
+  device-position="back"
+  flash="off"
+  binderror="error"
+  style="width: 100%; height: 300px;"
+></camera>
+<button type="primary" bindtap="takePhoto">人体抓拍</button>
+<button type="primary" bindtap="choosePhoto">选择照片</button>
+<view>预览</view>
+<image mode="widthFix" src="{{imagePath}}"></image>
+<button type="primary" bindtap="CarOcr" disabled='{{disabled}}'>人体分析</button>
+
+<view hidden="{{hidden}}"class="content"> 
+ <text decode='true'>分析结果：\n</text>
+  <text decode='true' >{{ocrData}} </text>
+  </view>
+<!-- <button type="primary" bindtap="Location">发送</button> -->
