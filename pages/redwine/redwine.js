@@ -54,11 +54,40 @@ Page({
     var that = this;
     wx.chooseImage({
       count: 1,
-      sizeType: ['original'],
+      sizeType: ['compressed'],
       sourceType: ['album'],
       success(res) {
         that.setData({
-          imagePath: res.tempFilePaths[0]
+          imagePath: res.tempFiles[0].path,
+          disabled: 'true'
+        })
+        wx.uploadFile({
+          url: ip + '/ocrchoose',
+          filePath: res.tempFiles[0].path,//图片路径，如tempFilePaths[0]
+          name: 'image',
+          header: {
+            "Content-Type": "multipart/form-data"
+          },
+          formData:
+          {
+            openid: wx.getStorageSync('openid'),
+            filename: res.tempFiles[0].path.split("/")[3],
+            ocrtype: 'redwine'
+          },
+          success: function (res) {
+            console.log(JSON.parse(res.data));
+            that.setData({
+              disabled: '',
+              ocrData: '\n' + '酒类型：' + JSON.parse(res.data).result.classifyByColor + '\n' + '子产区中文名：' + JSON.parse(res.data).result.subRegionCn + '\n' + '红酒中文名：' + JSON.parse(res.data).result.wineNameCn + '\n' + '子产区英文名：' + JSON.parse(res.data).result.subRegionEn + '\n' + '产区英文名：' + JSON.parse(res.data).result.regionEn + '\n' + '色泽：' + JSON.parse(res.data).result.color + '\n' + '红酒英文名：' + JSON.parse(res.data).result.wineNameEn + '\n' + '酒庄中文名：' + JSON.parse(res.data).result.wineryCn + '\n' + '糖分类型：' + JSON.parse(res.data).result.classifyBySugar + '\n' + '品尝温度：' + JSON.parse(res.data).result.tasteTemperature + '\n' + '产区中文名：' + JSON.parse(res.data).result.regionCn + '\n' + '酒庄英文名：' + JSON.parse(res.data).result.wineryEn + '\n' + '葡萄品种中文名：' + JSON.parse(res.data).result.grapeCn + '\n' + '葡萄品种英文名：' + JSON.parse(res.data).result.grapeEn + '\n' + '国家中文名：' + JSON.parse(res.data).result.countryCn + '\n' + +'' + '国家英文名：' + JSON.parse(res.data).result.countryEn + '\n' + '酒品描述：' + JSON.parse(res.data).result.description + '\n',
+              hidden: ''
+            })
+          },
+          fail: function (res) {
+            console.log(res);
+            that.setData({
+              disabled: ''
+            })
+          },
         })
       }
     })

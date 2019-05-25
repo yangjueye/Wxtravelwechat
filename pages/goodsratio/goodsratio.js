@@ -54,11 +54,39 @@ Page({
     var that = this;
     wx.chooseImage({
       count: 1,
-      sizeType: ['original'],
+      sizeType: ['compressed'],
       sourceType: ['album'],
       success(res) {
         that.setData({
-          imagePath: res.tempFilePaths[0]
+          imagePath: res.tempFiles[0].path,
+          disabled: 'true'
+        })
+        wx.uploadFile({
+          url: ip + '/ocrchoose',
+          filePath: res.tempFiles[0].path,//图片路径，如tempFilePaths[0]
+          name: 'image',
+          header: {
+            "Content-Type": "multipart/form-data"
+          },
+          formData:
+          {
+            openid: wx.getStorageSync('openid'),
+           filename: res.tempFiles[0].path.split("/")[3],
+            ocrtype: 'goodsratio'
+          },
+          success: function (res) {
+            that.setData({
+              disabled: '',
+              ocrData: '\n' + '货币名称：' + JSON.parse(res.data).result.currencyName + '\n' + '货币代码：' + JSON.parse(res.data).result.currencyCode + '\n' + '货币面值：' + JSON.parse(res.data).result.currencyDenomination + '\n' + '货币年份：' + JSON.parse(res.data).result.year,
+              hidden: ''
+            })
+          },
+           fail: function (res) {
+            console.log(res);
+            that.setData({
+              disabled: ''
+            })
+          },
         })
       }
     })
@@ -70,7 +98,7 @@ Page({
       that.setData({
         disabled: 'true'
       }),
-        console.log('openid:' + wx.getStorageSync('openid'));
+        
       wx.uploadFile({
         url: ip + '/uploadcontroller',
         filePath: that.data.imagePath,//图片路径，如tempFilePaths[0]
@@ -85,7 +113,7 @@ Page({
           ocrtype: 'goodsratio'
         },
         success: function (res) {
-          console.log(JSON.parse(res.data));
+          console.log(that.data.imagePath);
           that.setData({
             disabled: '',
             ocrData: '\n'  + '货币名称：' + JSON.parse(res.data).result.currencyName + '\n'  + '货币代码：' + JSON.parse(res.data).result.currencyCode + '\n'  + '货币面值：' + JSON.parse(res.data).result.currencyDenomination + '\n' + '货币年份：' + JSON.parse(res.data).result.year,
@@ -98,9 +126,7 @@ Page({
             disabled: ''
           })
         },
-        complete: function (res) {
-
-        }
+      
       })
     }
     else {

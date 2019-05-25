@@ -59,11 +59,55 @@ Page({
     var that = this;
     wx.chooseImage({
       count: 1,
-      sizeType: ['original'],
+      sizeType: ['compressed'],
       sourceType: ['album'],
       success(res) {
         that.setData({
-          imagePath: res.tempFilePaths[0]
+          imagePath: res.tempFiles[0].path,
+          disabled: 'true'
+        })
+        wx.uploadFile({
+          url: ip + '/ocrchoose',
+          filePath: res.tempFiles[0].path,//图片路径，如tempFilePaths[0]
+          name: 'image',
+          header: {
+            "Content-Type": "multipart/form-data"
+          },
+          formData:
+          {
+            openid: wx.getStorageSync('openid'),
+            filename: res.tempFiles[0].path.split("/")[3],
+            ocrtype: 'cartype'
+          },
+          success: function (res) {
+            if (JSON.parse(res.data).result[0].name == '非车类') {
+              wx.showToast({
+                title: '请识别汽车！',
+                image: '/images/eye.png',
+                duration: 1000
+              }),
+                that.setData({
+                  disabled: ''
+                })
+            } else {
+              that.setData({
+                disabled: '',
+                top1: '颜色：' + JSON.parse(res.data).color_result + '\n' + 'TOP1' + '\n' + '车型名称：' + JSON.parse(res.data).result[0].name + '\n' + '置信度：' + JSON.parse(res.data).result[0].score + '\n' + '年份：' + JSON.parse(res.data).result[0].year + '\n' + '百科描述：' + JSON.parse(res.data).result[0].baike_info.description + '\n' + '百科图片：' + '\n',
+                img1: JSON.parse(res.data).result[0].baike_info.image_url,
+                top2: '\n' + 'TOP2' + '\n' + '车型名称：' + JSON.parse(res.data).result[1].name + '\n' + '置信度：' + JSON.parse(res.data).result[1].score + '\n' + '年份：' + JSON.parse(res.data).result[1].year + '\n' + '百科描述：' + JSON.parse(res.data).result[1].baike_info.description + '\n' + '百科图片：' + '\n',
+                img2: JSON.parse(res.data).result[1].baike_info.image_url,
+                top3: '\n' + 'TOP3' + '\n' + '车型名称：' + JSON.parse(res.data).result[2].name + '\n' + '置信度：' + JSON.parse(res.data).result[2].score + '\n' + '年份：' + JSON.parse(res.data).result[2].year + '\n' + '百科描述：' + JSON.parse(res.data).result[2].baike_info.description + '\n' + '百科图片：' + '\n',
+                img3: JSON.parse(res.data).result[2].baike_info.image_url,
+                hidden: ''
+              })
+            }
+          },
+          fail: function (res) {
+            console.log(res);
+            that.setData({
+              disabled: ''
+            })
+          },
         })
       }
     })

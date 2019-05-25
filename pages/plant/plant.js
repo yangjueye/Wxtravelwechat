@@ -63,11 +63,48 @@ Page({
     var that = this;
     wx.chooseImage({
       count: 1,
-      sizeType: ['original'],
+      sizeType: ['compressed'],
       sourceType: ['album'],
       success(res) {
         that.setData({
-          imagePath: res.tempFilePaths[0]
+          imagePath: res.tempFiles[0].path,
+          disabled: 'true'
+        })
+        wx.uploadFile({
+          url: ip + '/ocrchoose',
+          filePath: res.tempFiles[0].path,//图片路径，如tempFilePaths[0]
+          name: 'image',
+          header: {
+            "Content-Type": "multipart/form-data"
+          },
+          formData:
+          {
+            openid: wx.getStorageSync('openid'),
+            filename: res.tempFiles[0].path.split("/")[3],
+            ocrtype: 'plant'
+          },
+          success: function (res) {
+            that.setData({
+              disabled: '',
+              top1: '\n' + 'TOP1' + '\n' + '名称：' + JSON.parse(res.data).result[0].name + '\n' + '描述：' + JSON.parse(res.data).result[0].baike_info.description + '\n',
+              img1: JSON.parse(res.data).result[0].baike_info.image_url,
+              top2: '\n' + 'TOP2' + '\n' + '名称：' + JSON.parse(res.data).result[1].name + '\n' + '描述：' + JSON.parse(res.data).result[1].baike_info.description + '\n',
+              img2: JSON.parse(res.data).result[1].baike_info.image_url,
+              top3: '\n' + 'TOP3' + '\n' + '名称：' + JSON.parse(res.data).result[2].name + '\n' + '描述：' + JSON.parse(res.data).result[2].baike_info.description + '\n',
+              img3: JSON.parse(res.data).result[2].baike_info.image_url,
+              top4: '\n' + 'TOP4' + '\n' + '名称：' + JSON.parse(res.data).result[3].name + '\n' + '描述：' + JSON.parse(res.data).result[3].baike_info.description + '\n',
+              img4: JSON.parse(res.data).result[3].baike_info.image_url,
+              top5: '\n' + 'TOP5' + '\n' + '名称：' + JSON.parse(res.data).result[4].name + '\n' + '描述：' + JSON.parse(res.data).result[4].baike_info.description + '\n',
+              img5: JSON.parse(res.data).result[4].baike_info.image_url,
+              hidden: ''
+            })
+          },
+          fail: function (res) {
+            console.log(res);
+            that.setData({
+              disabled: ''
+            })
+          },
         })
       }
     })

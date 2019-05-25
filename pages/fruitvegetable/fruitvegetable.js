@@ -54,11 +54,40 @@ Page({
     var that = this;
     wx.chooseImage({
       count: 1,
-      sizeType: ['original'],
+      sizeType: ['compressed'],
       sourceType: ['album'],
       success(res) {
         that.setData({
-          imagePath: res.tempFilePaths[0]
+          imagePath: res.tempFiles[0].path,
+          disabled: 'true'
+        })
+        wx.uploadFile({
+          url: ip + '/ocrchoose',
+          filePath: res.tempFiles[0].path,//图片路径，如tempFilePaths[0]
+          name: 'image',
+          header: {
+            "Content-Type": "multipart/form-data"
+          },
+          formData:
+          {
+            openid: wx.getStorageSync('openid'),
+            filename: res.tempFiles[0].path.split("/")[3],
+            ocrtype: 'fruitvegetable'
+          },
+          success: function (res) {
+            that.setData({
+              disabled: '',
+              ocrData: '\n' + '名称：' + JSON.parse(res.data).result[0].name + '\n' + '概率：' + JSON.parse(res.data).result[0].score + '\n\n' + '名称：' + JSON.parse(res.data).result[1].name + '\n' + '概率：' + JSON.parse(res.data).result[1].score + '\n\n' + '名称：' + JSON.parse(res.data).result[2].name + '\n' + '概率：' + JSON.parse(res.data).result[2].score + '\n\n' + '名称：' + JSON.parse(res.data).result[3].name + '\n' + '概率：' + JSON.parse(res.data).result[3].score + '\n\n' + '名称：' + JSON.parse(res.data).result[4].name + '\n' + '概率：' + JSON.parse(res.data).result[4].score + '\n\n',
+
+              hidden: ''
+            })
+          },
+          fail: function (res) {
+            console.log(res);
+            that.setData({
+              disabled: ''
+            })
+          },
         })
       }
     })

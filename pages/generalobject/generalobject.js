@@ -56,11 +56,41 @@ Page({
     var that = this;
     wx.chooseImage({
       count: 1,
-      sizeType: ['original'],
+      sizeType: ['compressed'],
       sourceType: ['album'],
       success(res) {
         that.setData({
-          imagePath: res.tempFilePaths[0]
+          imagePath: res.tempFiles[0].path,
+          disabled: 'true'
+        })
+        wx.uploadFile({
+          url: ip + '/ocrchoose',
+          filePath: res.tempFiles[0].path,//图片路径，如tempFilePaths[0]
+          name: 'image',
+          header: {
+            "Content-Type": "multipart/form-data"
+          },
+          formData:
+          {
+            openid: wx.getStorageSync('openid'),
+            filename: res.tempFiles[0].path.split("/")[3],
+            ocrtype: 'generalobject'
+          },
+          success: function (res) {
+            that.setData({
+              disabled: '',
+              top1: 'TOP1' + '\n' + '标签：' + JSON.parse(res.data).result[0].root + '\n' + '名称：' + JSON.parse(res.data).result[0].keyword + '\n' + '描述：' + JSON.parse(res.data).result[0].baike_info.description + '\n',
+              img1: JSON.parse(res.data).result[0].baike_info.image_url,
+              other: '\n' + 'TOP2' + '\n' + '标签：' + JSON.parse(res.data).result[1].root + '\n' + '名称：' + JSON.parse(res.data).result[1].keyword + '\n\n' + 'TOP3' + '\n' + '标签：' + JSON.parse(res.data).result[2].root + '\n' + '名称：' + JSON.parse(res.data).result[2].keyword + '\n\n' + 'TOP4' + '\n' + '标签：' + JSON.parse(res.data).result[3].root + '\n' + '名称：' + JSON.parse(res.data).result[3].keyword + '\n\n' + 'TOP5' + '\n' + '标签：' + JSON.parse(res.data).result[4].root + '\n' + '名称：' + JSON.parse(res.data).result[4].keyword,
+              hidden: ''
+            })
+          },
+          fail: function (res) {
+            console.log(res);
+            that.setData({
+              disabled: ''
+            })
+          },
         })
       }
     })

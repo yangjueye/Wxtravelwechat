@@ -1,66 +1,37 @@
-
+const app = getApp()
+var ip = app.globalData.ip
+var openid = app.globalData.openid
 Page({
-
-  /**
-   * 页面的初始数据
-   */
+  /* 设置初始值 */
   data: {
-
+    communications: [],
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  /* 窗口加载事件 */
   onLoad: function (options) {
-
+    var that = this;
+    console.log('oload....');
+    wx.request({
+      url: ip + '/communication',
+      data: {
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data);
+        that.setData({
+          communications: res.data
+        })
+      },
+      fail: function (res) {
+        console.log(".....fail.....");
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  communicationsTab: function (e) {
+    let id = e.target.dataset.id;
+    console.log('此次点击的id:' + id);
   }
 })

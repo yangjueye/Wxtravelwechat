@@ -67,7 +67,11 @@ Page({
           
       },
       fail: function(info){
-
+        wx.showToast({
+          title: '暂无路线！',
+          image: '/images/live.png',
+          duration: 2000
+        })
       }
     })
   },

@@ -61,7 +61,7 @@ Page({
   },
   toRoadpredict: function (e) {
     wx.navigateTo({
-      url: '../roadpredict/roadpredict',
+      url: '../staticregeo/staticregeo',
     })
   },
   toSubwaymap: function (e) {

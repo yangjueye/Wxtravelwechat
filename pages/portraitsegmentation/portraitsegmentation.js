@@ -85,11 +85,44 @@ Page({
     var that = this;
     wx.chooseImage({
       count: 1,
-      sizeType: ['original'],
+      sizeType: ['compressed'],
       sourceType: ['album'],
       success(res) {
         that.setData({
-          imagePath: res.tempFilePaths[0]
+          imagePath: res.tempFilePaths[0],
+          disabled: 'true'
+        })
+        console.log(res.tempFilePaths[0].split("/")[3])
+        wx.uploadFile({
+          url: ip + '/ocrchoose',
+          filePath: res.tempFilePaths[0],//图片路径，如tempFilePaths[0]
+          ip: ip,
+          name: 'image',
+          header: {
+            "Content-Type": "multipart/form-data"
+          },
+          formData:
+          {
+            openid: wx.getStorageSync('openid'),
+            filename: res,
+            ocrtype: 'portraitsegmentation',
+            ip:ip
+          },
+          success: function (res) {
+            console.log(res.data)
+            imageurl = ip + '/ocrchooseimgs/' + res.data.split("/")[7];
+            that.setData({
+              disabled: '',
+              imagePath: ip + '/ocrchooseimgs/' + res.data.split("/")[7],
+
+            })
+          },
+          fail: function (res) {
+            console.log(res);
+            that.setData({
+              disabled: ''
+            })
+          },
         })
       }
     })

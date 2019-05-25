@@ -45,6 +45,7 @@ Page({
       origin: e.start,
       destination: e.end,
       success: function(data){
+        console.log('骑行成功' + data)
         var points = [];
         if(data.paths && data.paths[0] && data.paths[0].steps){
           var steps = data.paths[0].steps;
@@ -95,7 +96,12 @@ Page({
           
       },
       fail: function(info){
-
+        console.log('骑行失败' + info)
+        wx.showToast({
+          title: '暂无路线！',
+          image: '/images/live.png',
+          duration: 2000
+        })
       }
     })
   },

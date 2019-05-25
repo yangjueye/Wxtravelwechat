@@ -54,11 +54,52 @@ Page({
     var that = this;
     wx.chooseImage({
       count: 1,
-      sizeType: ['original'],
+      sizeType: ['compressed'],
       sourceType: ['album'],
       success(res) {
         that.setData({
-          imagePath: res.tempFilePaths[0]
+          imagePath: res.tempFiles[0].path,
+          disabled: 'true'
+        })
+        wx.uploadFile({
+          url: ip + '/ocrchoose',
+          filePath: res.tempFiles[0].path,//图片路径，如tempFilePaths[0]
+          name: 'image',
+          header: {
+            "Content-Type": "multipart/form-data"
+          },
+          formData:
+          {
+            openid: wx.getStorageSync('openid'),
+            filename: res.tempFiles[0].path.split("/")[3],
+            ocrtype: 'driveanalysis'
+          },
+          success: function (res) {
+            if (JSON.parse(res.data).person_num == 0) {
+              wx.showToast({
+                title: '未检测到驾驶员！',
+                image: '/images/eye.png',
+                duration: 1000
+              }),
+                that.setData({
+                  disabled: ''
+                })
+            }
+            else {
+              console.log(JSON.parse(res.data));
+              that.setData({
+                disabled: '',
+                ocrData: '吸烟概率：' + JSON.parse(res.data).person_info[0].attributes.smoke.score + '\n\n' + '使用手机概率：' + JSON.parse(res.data).person_info[0].attributes.cellphone.score + '\n\n' + '未系安全带概率：' + JSON.parse(res.data).person_info[0].attributes.not_buckling_up.score + '\n\n' + '双手离开方向盘概率：' + JSON.parse(res.data).person_info[0].attributes.both_hands_leaving_wheel.score + '\n\n' + '视角未朝向前方：' + JSON.parse(res.data).person_info[0].attributes.not_facing_front.score,
+                hidden: ''
+              })
+            }
+          },
+          fail: function (res) {
+            console.log(res);
+            that.setData({
+              disabled: ''
+            })
+          },
         })
       }
     })

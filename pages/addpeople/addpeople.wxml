@@ -1,2 +1,11 @@
-<!--pages/addpeople/addpeople.wxml-->
-<text>pages/addpeople/addpeople.wxml</text>
+<view class="wa-list">
+
+     <view wx:for="{{communications}}"  wx:key="item.id"  class="wa-item wa-item-ava" >
+        
+        <image class="item-img-round" src='{{item.url}}' bindtap="communicationsTab" data-id="{{item.id}}"></image>
+        {{item.name}}
+      <text class='wa-item-text'> {{item.tel}}</text>
+      
+     </view>
+
+</view>

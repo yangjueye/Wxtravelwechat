@@ -30,13 +30,13 @@ nighturl:''
       var forecast = new Array(3);
       for (var i = 0; i < 3; i++) {
         forecast[i] = data.originalData.results[0].weather_data[i + 1];
-        console.log(forecast[i])
+      //  console.log(forecast[i])
       }
       var str = weatherData.date.split(")");
       var str0 = str[0].split("(");
       var date = str0[0];
       var temperature = str0[1];
-      console.log(str0)
+   //   console.log(str0)
       that.setData({
         weatherData: weatherData,
         currentCity: data.currentWeather[0].currentCity,
@@ -81,13 +81,13 @@ nighturl:''
       var forecast = new Array(3);
       for (var i = 0; i < 3; i++) {
         forecast[i] = data.originalData.results[0].weather_data[i + 1];
-        console.log(forecast[i])
+     //   console.log(forecast[i])
       }
       var str = weatherData.date.split(")");
       var str0 = str[0].split("(");
       var date = str0[0];
       var temperature = str0[1];
-      console.log(str0)
+    //  console.log(str0)
       that.setData({
         weatherData: weatherData,
         currentCity: data.currentWeather[0].currentCity,

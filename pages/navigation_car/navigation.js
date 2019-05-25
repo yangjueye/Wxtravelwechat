@@ -47,6 +47,7 @@ Page({
       origin: e.start,
       destination: e.end,
       success: function(data){
+        console.log('驾车成功' + data)
         var points = [];
         if(data.paths && data.paths[0] && data.paths[0].steps){
           var steps = data.paths[0].steps;
