@@ -31,7 +31,7 @@ Page({
   },
 
   communicationsTab: function (e) {
-    let id = e.target.dataset.id;
-    console.log('此次点击的id:' + id);
+    let i = e.target.dataset.i;
+    console.log('此次点击的id:' + i);
   }
 })
