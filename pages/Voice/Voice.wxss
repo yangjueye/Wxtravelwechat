@@ -1,6 +1,5 @@
 .btn{
   margin-top: 10rpx;
-  background-color: rgb(255, 196, 0)
+  /* background-color: rgb(255, 165, 79); */
+  font-size: 34rpx;
 }
-
-

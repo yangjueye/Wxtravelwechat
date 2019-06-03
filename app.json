@@ -1,9 +1,12 @@
 {
   "pages": [
+   
+"pages/start/start",
+  "pages/chat/chat",
     "pages/addpeople/addpeople",
     "pages/weather/weather",
     "pages/sosphoto/sosphoto",
-   
+   "pages/join/join",
       "pages/regeo/regeo",
     "pages/ispoi/ispoi",
     "pages/inputtips/input",
@@ -13,7 +16,7 @@
    "pages/staticinputtips/staticinput",
     "pages/navigation_car/navigation",
     
-  
+
  
    
     "pages/portraitsegmentation/portraitsegmentation",

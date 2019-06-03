@@ -21,7 +21,7 @@
     <text>{{textData.desc}}</text>
 </view>
 <view class="conts">
-    <textarea style='border: 3rpx solid red;'class="areas" placeholder='此时此刻是否一个人在出行的旅途感到寂寞？脑海里有没有浮现你想的人或者挂念你的人？请让爵爷带你千里传音吧！' minlength="{{min}}" maxlength="{{max}}" value="{{usercontens}}" bindinput="userContentsInput"> 
+    <textarea style='border: 3rpx solid red;'class="areas" placeholder='此时此刻是否一个人在出行的旅途感到寂寞？脑海里有没有浮现你想的人或者挂念你的人？请让我们带你千里传音吧！' minlength="{{min}}" maxlength="{{max}}" value="{{usercontens}}" bindinput="userContentsInput"> 
         <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text>
         <text class="hint">{{texts}}</text>
     </textarea>

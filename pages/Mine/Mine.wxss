@@ -14,13 +14,15 @@
 }
 
 .userinfo-nickname {
-  color: rgba(238, 178, 66, 0.664);
-  text-align: center;
+  color: rgb(255, 165, 79);
+  text-align: left;
+  font-size: 34rpx;
 }
 
 .usermotto{
   margin-top: 10rpx;
-  color: rgba(247, 17, 36, 0.664);
+  color: rgb(136, 136, 136);
+  font-size: 24rpx;
 }
 .profile-wrapper, .account-wrapper {
     background-color: rgb(255, 255, 255);
@@ -37,7 +39,7 @@
 
 .profile-item, .account-item {
     flex: 1;
-    font-size: 24rpx;
+    font-size: 30rpx;
 }
 
 .profile-arrow, .account-arrow {
@@ -46,4 +48,11 @@
 }
 .green{
   background: rgb(6, 81, 241) !important;
+}
+.bottom {
+    border-radius: 80rpx;
+    margin: 30rpx 50rpx;
+    font-size: 35rpx;
+    
+     background: rgb(2, 187, 0);
 }

@@ -100,6 +100,7 @@ Page({
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
+       
         this.setData({
           userInfo: res.userInfo,
           hasUserInfo: true
@@ -115,6 +116,7 @@ Page({
             userInfo: res.userInfo,
             hasUserInfo: true
           })
+         
         }
       })
       this.getUserDollar();
@@ -129,8 +131,13 @@ Page({
         duration: 2000
       })
     }else{
+      wx.redirectTo
+        ({
+          url: "/pages/start/start"
+        })
         var that = this;
         app.globalData.userInfo = e.detail.userInfo
+      wx.setStorageSync('userInfo', e.detail.userInfo)
         this.setData({
           userInfo: e.detail.userInfo,
           hasUserInfo: true
@@ -290,6 +297,11 @@ Page({
   toAmbassador: function (e) {
     wx.navigateTo({
       url: '../Ambassador/Ambassador',
+    })
+  },
+  toJoin: function (e) {
+    wx.navigateTo({
+      url: '../join/join',
     })
   },
   //留声征集

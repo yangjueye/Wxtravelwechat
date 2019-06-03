@@ -2,27 +2,32 @@
 <view class="account-wrapper">
 <view class="profile" catchtap="toDestinationsearch">
       <image class="title-arrow" src="/images/mudidi.png"></image>
-      <view class="profile-item">目的地查询</view>
+      <view class="profile-item">
+      <text space='nbsp'>  目的地查询</text></view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
 <view class="profile" catchtap="toRounds">
       <image class="title-arrow" src="/images/fujin.png"></image>
-      <view class="profile-item">附近</view>
+      <view class="profile-item">
+      <text space='nbsp'>  附近</text></view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
   <view class="profile" catchtap="toRoadpredict">
       <image class="title-arrow" src="/images/yuce.png"></image>
-      <view class="profile-item">城市路况查询</view>
+      <view class="profile-item">
+      <text space='nbsp'>  城市路况查询</text></view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
   <view class="profile" catchtap="toSubwaymap">
       <image class="title-arrow" src="/images/subway.png"></image>
-      <view class="profile-item">地铁</view>
+      <view class="profile-item">
+      <text space='nbsp'>  地铁</text></view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
     <view class="profile" catchtap="toIndoormap">
       <image class="title-arrow" src="/images/indoor.png"></image>
-      <view class="profile-item">室内地图</view>
+      <view class="profile-item">
+      <text space='nbsp'>  室内地图</text></view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
 

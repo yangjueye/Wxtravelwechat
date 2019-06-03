@@ -38,7 +38,11 @@ Page({
       url: '../phone/phone',
     })
   },
-
+  toChat: function (e) {
+    wx.navigateTo({
+      url: '../chat/chat',
+    })
+  },
   onShareAppMessage: function () {
   },
 })

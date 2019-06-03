@@ -218,5 +218,10 @@ Page({
         // wx.showModal({title:info.errMsg})
       }
     })
-  }
+  },
+  soscall: function () {
+    wx.makePhoneCall({
+      phoneNumber: '15533532322' // 仅为示例，并非真实的电话号码
+    })
+  },
 })

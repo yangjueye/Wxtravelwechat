@@ -36,7 +36,25 @@ nighturl:''
       var str0 = str[0].split("(");
       var date = str0[0];
       var temperature = str0[1];
-   //   console.log(str0)
+      var cyzs;
+      var xczs;
+      var gmzs;
+      var ydzs;
+      var zwxqd;
+     // console.log(data.originalData.results[0].index[0].zs)
+      if (!data.originalData.results[0].index[0]) {
+        cyzs = '暂无推荐';
+        xczs = '暂无推荐';
+        gmzs = '暂无推荐';
+        ydzs = '暂无推荐';
+        zwxqd = '暂无推荐';
+      } else {
+        cyzs = data.originalData.results[0].index[0].zs;
+        xczs = data.originalData.results[0].index[1].zs;
+        gmzs = data.originalData.results[0].index[2].zs;
+        ydzs = data.originalData.results[0].index[3].zs;
+        zwxqd = data.originalData.results[0].index[4].zs;
+      }
       that.setData({
         weatherData: weatherData,
         currentCity: data.currentWeather[0].currentCity,
@@ -45,16 +63,16 @@ nighturl:''
         weatherDesc: data.currentWeather[0].weatherDesc,
         pm25: 'PM2.5: ' + data.currentWeather[0].pm25,
         wind: '风力：' + data.currentWeather[0].wind,
-        clothes: '穿衣指数：' + data.originalData.results[0].index[0].zs,
-        car: '洗车指数：' + data.originalData.results[0].index[1].zs,
-        cold: '感冒指数：' + data.originalData.results[0].index[2].zs,
-        exercise: '运动指数：' + data.originalData.results[0].index[3].zs,
-        light: '紫外线强度：' + data.originalData.results[0].index[4].zs,
+        clothes: '穿衣指数：' + cyzs,
+        car: '洗车指数：' + xczs,
+        cold: '感冒指数：' + gmzs,
+        exercise: '运动指数：' + ydzs,
+        light: '紫外线强度：' + zwxqd,
         dayurl: data.originalData.results[0].weather_data[0].dayPictureUrl,
         nighturl: data.originalData.results[0].weather_data[0].nightPictureUrl,
-        tomorrow: data.originalData.results[0].weather_data[1].date + ': ' + data.originalData.results[0].weather_data[1].temperature+',' + '\n' + data.originalData.results[0].weather_data[1].weather+', ' + data.originalData.results[0].weather_data[1].wind,
-        day_after_tomorrow: data.originalData.results[0].weather_data[2].date + ': ' + data.originalData.results[0].weather_data[2].temperature+',' + '\n' + data.originalData.results[0].weather_data[2].weather+', ' + data.originalData.results[0].weather_data[2].wind,
-        in_3_days: data.originalData.results[0].weather_data[3].date+': ' + data.originalData.results[0].weather_data[3].temperature+', ' + '\n' + data.originalData.results[0].weather_data[2].weather+', ' + data.originalData.results[0].weather_data[2].wind,
+        tomorrow: data.originalData.results[0].weather_data[1].date + ': ' + data.originalData.results[0].weather_data[1].temperature + ',' + '\n' + data.originalData.results[0].weather_data[1].weather + ', ' + data.originalData.results[0].weather_data[1].wind,
+        day_after_tomorrow: data.originalData.results[0].weather_data[2].date + ': ' + data.originalData.results[0].weather_data[2].temperature + ',' + '\n' + data.originalData.results[0].weather_data[2].weather + ', ' + data.originalData.results[0].weather_data[2].wind,
+        in_3_days: data.originalData.results[0].weather_data[3].date + ': ' + data.originalData.results[0].weather_data[3].temperature + ', ' + '\n' + data.originalData.results[0].weather_data[2].weather + ', ' + data.originalData.results[0].weather_data[2].wind,
       });
     }
     BMap.weather({
@@ -88,6 +106,24 @@ nighturl:''
       var date = str0[0];
       var temperature = str0[1];
     //  console.log(str0)
+      var cyzs;
+      var xczs;
+      var gmzs;
+      var ydzs;
+      var zwxqd;
+      if (!data.originalData.results[0].index[0]) {
+         cyzs='暂无推荐';
+         xczs='暂无推荐';
+        gmzs = '暂无推荐';
+        ydzs = '暂无推荐';
+        zwxqd = '暂无推荐';
+      }else{
+        cyzs = data.originalData.results[0].index[0].zs;
+        xczs = data.originalData.results[0].index[1].zs;
+        gmzs = data.originalData.results[0].index[2].zs;
+        ydzs = data.originalData.results[0].index[3].zs;
+        zwxqd = data.originalData.results[0].index[4].zs;
+      }
       that.setData({
         weatherData: weatherData,
         currentCity: data.currentWeather[0].currentCity,
@@ -96,11 +132,11 @@ nighturl:''
         weatherDesc: data.currentWeather[0].weatherDesc,
         pm25: 'PM2.5: ' + data.currentWeather[0].pm25,
         wind: '风力：' + data.currentWeather[0].wind,
-        clothes: '穿衣指数：' + data.originalData.results[0].index[0].zs,
-        car: '洗车指数：' + data.originalData.results[0].index[1].zs,
-        cold: '感冒指数：' + data.originalData.results[0].index[2].zs,
-        exercise: '运动指数：' + data.originalData.results[0].index[3].zs,
-        light: '紫外线强度：' + data.originalData.results[0].index[4].zs,
+        clothes: '穿衣指数：' + cyzs,
+        car: '洗车指数：' + xczs,
+        cold: '感冒指数：' + gmzs,
+        exercise: '运动指数：' + ydzs,
+        light: '紫外线强度：' + zwxqd,
         dayurl: data.originalData.results[0].weather_data[0].dayPictureUrl,
         nighturl: data.originalData.results[0].weather_data[0].nightPictureUrl,
         tomorrow: data.originalData.results[0].weather_data[1].date + ': ' + data.originalData.results[0].weather_data[1].temperature + ',' + '\n' + data.originalData.results[0].weather_data[1].weather + ', ' + data.originalData.results[0].weather_data[1].wind,

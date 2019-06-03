@@ -1,14 +1,14 @@
 <view class="view">
   <image class="logo" src="../../images/fujin.png"></image>
   <view class="version">我就在你身边</view>
-  <view class="title">iTravel带你找附近</view>
+  <view class="title">带你找附近</view>
   <view class="zan-panel">
     <view class="zan-cell" bindtap="doAuthor">
       <view class="zan-cell__bd">附近功能</view>
       <view class="zan-cell__ft">带你找附近餐饮、超市、公厕、公交车站、停车场等</view>
     </view>
     <view class="zan-cell" bindtap="doFunction">
-      <view class="zan-cell__bd">iTravel智能出行</view>
+      <view class="zan-cell__bd">有话要说</view>
       <view class="zan-cell__ft">只要你想我就会在你身边</view>
     </view>
     <view class="zan-cell" bindtap="doHelp">

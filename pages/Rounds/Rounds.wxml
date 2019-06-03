@@ -2,62 +2,74 @@
 <view class="account-wrapper">
 <view class="profile" catchtap="toRoadtime">
       <image class="title-arrow" src="/images/fujin1.jpg"></image>
-      <view class="profile-item">附近路况</view>
+      <view class="profile-item">
+      <text space='nbsp'>  附近路况</text></view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
 <view class="profile" catchtap="toPanoramicrotate">
       <image class="title-arrow" src="/images/xuanzhuan.png"></image>
-      <view class="profile-item">附近实景旋转</view>
+      <view class="profile-item">
+      <text space='nbsp'>  附近实景旋转</text></view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
   <view class="profile" catchtap="toPanoramicmap">
       <image class="title-arrow" src="/images/shijing.png"></image>
-      <view class="profile-item">附近实景类型</view>
+      <view class="profile-item">
+      <text space='nbsp'>  附近实景类型</text></view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
 <view class="profile" catchtap="toSearchrounds">
       <image class="title-arrow" src="/images/sousuo.png"></image>
-      <view class="profile-item">搜索附近</view>
+      <view class="profile-item">
+      <text space='nbsp'>  搜索附近</text></view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
 <view class="profile" catchtap="toBus">
       <image class="title-arrow" src="/images/bus.jpg"></image>
-      <view class="profile-item">公交</view>
+      <view class="profile-item">
+      <text space='nbsp'>  公交</text></view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
   <view class="profile" catchtap="toCar">
       <image class="title-arrow" src="/images/car.jpg"></image>
-      <view class="profile-item">停车场</view>
+      <view class="profile-item">
+      <text space='nbsp'>  停车场</text></view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
   <view class="profile" catchtap="toGas">
       <image class="title-arrow" src="/images/gas.png"></image>
-      <view class="profile-item">加油站</view>
+      <view class="profile-item">
+      <text space='nbsp'>  加油站</text></view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
   <view class="profile" catchtap="toCharge">
       <image class="title-arrow" src="/images/charge.png"></image>
-      <view class="profile-item">充电桩</view>
+      <view class="profile-item">
+      <text space='nbsp'>  充电桩</text></view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
   <view class="profile" catchtap="toShop">
       <image class="title-arrow" src="/images/shop.jpg"></image>
-      <view class="profile-item">超市</view>
+      <view class="profile-item">
+      <text space='nbsp'>  超市</text></view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
   <view class="profile" catchtap="toFood">
       <image class="title-arrow" src="/images/food.png"></image>
-      <view class="profile-item">美食</view>
+      <view class="profile-item">
+      <text space='nbsp'>  美食</text></view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
   <view class="profile" catchtap="toPharmacy">
       <image class="title-arrow" src="/images/pharmacy.jpg"></image>
-      <view class="profile-item">药房</view>
+      <view class="profile-item">
+      <text space='nbsp'>  药房</text></view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
   <view class="profile" catchtap="toWc">
       <image class="title-arrow" src="/images/toilet.png"></image>
-      <view class="profile-item">公厕</view>
+      <view class="profile-item">
+      <text space='nbsp'>  公厕</text></view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
 </view>
