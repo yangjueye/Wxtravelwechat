@@ -151,10 +151,10 @@ Page({
         },
         success: function (res) {
           console.log(res.data);
-          imageurl=ip + '/ocrimages/' + res.data.split("/")[6];
+          imageurl=ip + '/ocrimages/' + res.data.split("/")[7];
           that.setData({
             disabled: '',
-            imagePath: ip + '/ocrimages/' + res.data.split("/")[6],
+            imagePath: ip + '/ocrimages/' + res.data.split("/")[7],
             
           })
         },

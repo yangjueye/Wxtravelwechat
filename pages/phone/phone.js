@@ -37,7 +37,7 @@ Page({
   startScreenClick: function () {
     var that =this;
     that.setTime();
-    that.setscreenbright();
+    that.setscreenblack();
     wx.startDeviceMotionListening({
       success: function (e) {
        // console.log(e);
@@ -61,6 +61,7 @@ Page({
     var that=this;
     status = false; 
     that.audioPause();
+    that.setscreenbright();
   clearInterval(time);
     wx.stopDeviceMotionListening({
       success: function (e) {
@@ -69,11 +70,12 @@ Page({
       fail(e) {
     //    console.log(e);
         that.endScreenClick();
+        
       }
     })
   },
-  //设置屏幕亮度
-  setscreenbright(){
+  //设置屏幕最暗
+  setscreenblack(){
     wx.setScreenBrightness({
         value: 0,    //屏幕亮度值，范围 0~1，0 最暗，1 最亮  
     })
@@ -84,7 +86,18 @@ Page({
     //   }
     // })
   },
- 
+  //设置屏幕最亮
+  setscreenbright() {
+    wx.setScreenBrightness({
+      value: 1,    //屏幕亮度值，范围 0~1，0 最暗，1 最亮  
+    })
+
+    // wx.getScreenBrightness({
+    //   success(res) {
+    //     console.log(res)
+    //   }
+    // })
+  },
 
   /**
    * 生命周期函数--监听页面加载

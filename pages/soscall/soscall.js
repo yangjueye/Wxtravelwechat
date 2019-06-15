@@ -48,7 +48,18 @@ Page({
     wx.makePhoneCall({
       phoneNumber: '12122' // 仅为示例，并非真实的电话号码
     })
+   
   },
+
+
+
+  call8: function () {
+    wx.makePhoneCall({
+      phoneNumber: '999' // 仅为示例，并非真实的电话号码
+    })
+  },
+
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -96,5 +107,7 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+ 
 })

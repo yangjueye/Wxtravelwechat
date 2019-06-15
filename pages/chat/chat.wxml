@@ -2,7 +2,7 @@
   <view class="containerBox" style="">
     <view wx:key="{{index}}" wx:for="{{allContentList}}">
       <view wx:key="{{index}}" wx:if="{{index%2 == 1}}" class="textBox fl" style="">{{item.value}}</view>
-      <view wx:key="{{index}}" wx:if="{{index%2 == 0}}" class="textBox fr">{{item.value}}</view>
+      <view wx:key="{{index}}" wx:if="{{index%2 != 1}}" class="textBox fr">{{item.value}}</view>
     </view>
 
     <!--<view class="leftBox" wx:for="{{inputValueList}}">

@@ -41,12 +41,6 @@ Page({
       },
       //请求成功的回调
       success: function (res) {
-
-        var thatt = that
-        thatt.setData({
-          inputValue: '',
-        });
-
         let data = res.data;
         console.log(data)
         if (data.code === 100000) {   //100000 表示返回成功
@@ -55,7 +49,9 @@ Page({
           //调用set方法，告诉系统数据已经改变   启动循环，循环聊天信息
           that.setData({
             returnValue: data.text,
-            allContentList: that.data.allContentList
+            allContentList: that.data.allContentList,
+            inputValue:'',
+            inputTemp:''
           })
 
         } else {
@@ -81,8 +77,11 @@ Page({
       }
     });
     let _url = `https://www.tuling123.com/openapi/api`;
+    var i;
+    
     for (i = 0; i < 5; i++) {
-      var j = i;
+      var j=i;
+      wx.setStorageSync('j', j);
       wx.request({
         url: _url,
         data: {
@@ -93,16 +92,22 @@ Page({
         header: {
           'Content-Type': 'application/json'
         },
+      
         //请求成功的回调
         success: function (res) {
+         
           let data = res.data;
+         
           console.log(data)
-          if (data.text != "亲爱的，当天请求次数已用完。") {
-            wx.setStorageSync('tulingkey', keyarray[j])
-            console.log(wx.getStorageSync('tulingkey'))
+          wx.setStorageSync('status', data.text) ;
+          if (wx.getStorageSync('status') != '亲爱的，当天请求次数已用完。') {
+            var m=wx.getStorageSync('j');
+            wx.setStorageSync('tulingkey', keyarray[3])
+            console.log(wx.getStorageSync('tulingkey') + 'm:' + m)
           }
         }
       })
+     
     }
   }
 

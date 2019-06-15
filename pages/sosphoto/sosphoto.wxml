@@ -9,7 +9,7 @@
   <view class="profile" catchtap="toPortraitsegmentation">
       <image class="title-arrow" src="/images/rxfg.png"></image>
       <view class="profile-item">
-      <text space='nbsp'>  人像分隔</text></view>
+      <text space='nbsp'>  人像提取</text></view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
 <view class="profile" catchtap="toHumannumber">

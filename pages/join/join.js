@@ -8,13 +8,12 @@ Page({
     userName: '',
     userPhone: '',
     userQQ: '',
-    userCity: '',
+    userCompanyname: '',
     workLife: ["1-3年", "3-5年", "5-8年", "8年以上"],
     workLifeIndex: 0,
-    range: ["业余摄影师", "专业摄影师", "高级摄影师"],
     rangeIndex: 0,
-    userCamera: '',
-    userLens: '',
+    userLicence: '',
+    userCityadd: '',
     userStyle: '',
     selfIntroduction: '',
 
@@ -30,33 +29,28 @@ Page({
   bindQQInput: function (e) {
     this.data.userQQ = e.detail.value;
   },
-  bindWorkLifeChange: function (e) {
-    this.setData({
-      workLifeIndex: e.detail.value,
-    })
-  },
-  binduserCityTap: function (e) {
-    // this.data.userCity = e.detail.value;
-    wx.navigateTo({
-      url: '../selectCity/selectCity',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
+  bindAdvantagesInput: function (e) {
+    this.data.userAdvantages = e.detail.value;
   },
   bindRangeChange: function (e) {
     this.setData({
       rangeIndex: e.detail.value,
     })
   },
-  bindCameraInput: function (e) {
-    this.data.userCamera = e.detail.value;
+  bindLicenceInput: function (e) {
+    this.data.userLicence = e.detail.value;
   },
-  bindLensInput: function (e) {
-    this.data.userLens = e.detail.value;
+  bindCityaddInput: function (e) {
+    this.data.userCityadd = e.detail.value;
   },
-  bindStyleInput: function (e) {
-    this.data.userStyle = e.detail.value;
+  bindCompanynameInput: function (e) {
+    this.data.userCompanyname = e.detail.value;
+  },
+  bindWebsiteInput: function (e) {
+    this.data.userWebsite = e.detail.value;
+  },
+  bindMailboxInput: function (e) {
+    this.data.userMailbox = e.detail.value;
   },
   inputIntroduction: function (e) {
     this.data.selfIntroduction = e.detail.value;
@@ -65,8 +59,8 @@ Page({
   //监听上传按钮
   bindSubmit: function (e) {
     //验证是否填写完善必要信息
-    if (this.data.userName == '' || this.data.userPhone == '' || this.data.userQQ == '' || this.data.userCity == ''
-      || this.data.userCamera == '' || this.data.userLens == '' || this.data.userStyle == '') {
+    if (this.data.userName == '' || this.data.userPhone == '' || this.data.userQQ == '' || this.data.userCompanyname == ''
+      || this.data.userLicence == '' || this.data.userCityadd == '' || this.data.userWebsite == '' || this.data.userMailbox == '' || this.data.userAdvantages=='') {
       wx.showModal({
         title: '提示',
         content: '请填写必要信息',
@@ -81,18 +75,18 @@ Page({
     })
     var currentUser = Bmob.User.current();
 
-    var Apply = Bmob.Object.extend("Apply");
+    var Apply = Bmob.Object.extend("join");
     var apply = new Apply();
     apply.set("appUser", currentUser);
     apply.set("userName", this.data.userName);
     apply.set("userPhone", this.data.userPhone);
     apply.set("userQQ", this.data.userQQ);
-    apply.set("userCity", this.data.userCity);
-    apply.set("workLife", this.data.workLife[this.data.workLifeIndex]);
-    apply.set("range", this.data.range[this.data.rangeIndex]);
-    apply.set("userCamera", this.data.userCamera);
-    apply.set("userLens", this.data.userLens);
-    apply.set("userStyle", this.data.userStyle);
+    apply.set("userCompanyname", this.data.userCompanyname);
+  //  apply.set("workLife", this.data.workLife[this.data.workLifeIndex]);
+   // apply.set("range", this.data.range[this.data.rangeIndex]);
+    apply.set("userLicence", this.data.userLicence);
+  //  apply.set("userLens", this.data.userLens);
+  //  apply.set("userStyle", this.data.userStyle);
     apply.set("selfIntroduction", this.data.selfIntroduction);
     //添加数据，第一个入口参数是null
     apply.save(null, {

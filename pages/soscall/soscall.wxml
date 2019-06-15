@@ -1,10 +1,21 @@
 <!--pages/soscall/soscall.wxml-->
-<view>
-<button style="top:15px;"type="primary" bindtap="call1">报警</button>
-<button style="top:25px;" type="primary" bindtap="call2">火警</button>
-<button style="top:35px;"type="primary" bindtap="call3">拖车救援</button>
-<button style="top:45px;"type="primary" bindtap="call4">医疗急救</button>
-<button style="top:55px;"type="primary" bindtap="call5">水上救援</button>
-<button style="top:65px;"type="primary" bindtap="call6">森林火警</button>
-<button style="top:75px;"type="primary" bindtap="call7">高速救援</button>
-</view>
+
+
+ <view class="soscall">
+ <image class='background-image' src='/images/weather1.jpg' ></image>
+ 
+<button style="top:60px; width:55% ;"type="primary" bindtap="call1"   >报警</button>
+<button style="top:70px; width:55%;" type="primary" bindtap="call2">火警</button>
+<button style="top:80px; width:55%;"type="primary" bindtap="call3">拖车救援</button>
+<button style="top:90px; width:55%;"type="primary" bindtap="call4">医疗急救</button>
+<button style="top:100px; width:55%;"type="primary" bindtap="call5">水上救援</button>
+<button style="top:110px; width:55%;"type="primary" bindtap="call6">森林火警</button>
+<button style="top:120px; width:55%;"type="primary" bindtap="call7">高速救援</button>
+<button style="top:130px; width:55%;"type="primary" bindtap="call8">红十字会救助</button>
+     
+</view> 
+
+
+
+
+
