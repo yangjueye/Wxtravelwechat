@@ -2,7 +2,7 @@
   <!--顶部基本信息-->
   <view class="zan-panel" wx:if="{{size > 0}}">
     <view class="zan-cell s-height">
-      <view class="zan-cell__bd">为你推荐附近的{{size}}个停车场</view>
+      <view class="zan-cell__bd">为你推荐附近的{{size}}个充电桩</view>
       <button class="zan-btn zan-btn--mini zan-btn--plain" bindtap="navToSetting"></button>
     </view>
   </view>
