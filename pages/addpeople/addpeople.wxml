@@ -1,6 +1,6 @@
 <view class="wa-list">
 
-     <view wx:for="{{communications}}"  wx:key="item.i"  class="wa-item wa-item-ava" >
+     <view wx:for="{{communications}}"  wx:key="item.i" bindtap="communicationsTab" class="wa-item wa-item-ava" >
         
         <image class="item-img-round" src='{{item.string3}}' bindtap="communicationsTab" data-i="{{item.i}}"></image>
         

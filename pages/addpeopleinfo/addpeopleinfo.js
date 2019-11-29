@@ -1,5 +1,4 @@
-// pages/login/login.js
-const app = getApp();
+const app = getApp()
 var ip = app.globalData.ip
 Page({
 
@@ -23,14 +22,44 @@ Page({
   /**
    * 输入手机号
    */
-  bindPhoneInput: function (item) {
-    this.setData({
-      phone: item.detail.value
-    })
+  userPhoneInput: function (e) {
+    //正则判断手机号
+    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    if (e.detail.value.length == 0) {
+      wx.showToast({
+        title: '手机号为空',
+        image: '/images/eye.png',
+        duration: 1000
+      })
+      return;
+    } else if (e.detail.value.length < 11) {
+      wx.showToast({
+        title: '长度有误！',
+        image: '/images/eye.png',
+        duration: 1000
+      })
+      return;
+    } else if (!myreg.test(e.detail.value)) {
+      wx.showToast({
+        title: '手机号有误！',
+        image: '/images/eye.png',
+        duration: 1000
+      })
+      return;
+    } else {
+      wx.showToast({
+        title: '填写正确',
+        icon: 'success',
+        duration: 1500
+      })
+      this.setData({
+        phone: e.detail.value
+      })
+    }
   },
 
   /**
- * 输入密码
+ * 输入姓名
  */
   bindpnameInput: function (item) {
     this.setData({
@@ -42,7 +71,8 @@ Page({
   /**
  * 点击保存按钮
  */
-  login: function (item) {
+  savepeople: function (item) {
+    var that = this;
     if (this.data.phone === '' || this.data.pname === '') {
       this.setData({
         isError: true,
@@ -50,24 +80,25 @@ Page({
       })
       return;
     }
-    let that = this;
     wx.request({
       url: ip + '/addpeople',
       data: {
         openid: wx.getStorageSync('openid'),
         phone: this.data.phone,
-        pname: this.data.pname
+        pname: this.data.pname,
+        type:"add"
       },
-      method: "POST",
+      method: "GET",
       success: function (res) {
-        if (res.data.success) {
-          wx.switchTab({
-            url: '/pages/department/department',
+        console.log("后台返回数据："+res.data)
+        if (res.data == "添加成功！") {
+          wx.redirectTo({
+            url: '../addpeople/addpeople',
           });
         } else {
           that.setData({
             isError: true,
-            errorText: "请输入正确的手机号码或姓名"
+            errorText: "出现错误,请重新操作！有问题请联系客服。"
           })
         }
       },
@@ -78,6 +109,7 @@ Page({
 
       }
     })
+    
   },
 
   /**

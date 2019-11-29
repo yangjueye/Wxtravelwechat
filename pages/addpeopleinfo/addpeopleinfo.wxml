@@ -4,15 +4,15 @@
     <text class="app-title">紧急联系人</text>
     <form class="login-form">
       <view class="section">
-        <input name="pname"  bindinput='bindPasswordInput' placeholder='姓名'/>
+        <input name="pname"  bindinput='bindpnameInput' placeholder='姓名'/>
       </view>
       <view class="section ">
-        <input name="phone " type="number " bindinput="bindPhoneInput " maxlength="11 " placeholder="手机号码 " />
+        <input name="phone " type="number " bindinput="userPhoneInput" maxlength="11 " placeholder="手机号码 " />
       </view>
       <text class="{{ isError ? 'error' : ''}} ">{{errorText}}</text>
     </form>
     <view class="section ">
-      <button bindtap="login ">保存</button>
+      <button bindtap="savepeople">保存</button>
     </view>
   </view>
 </view>

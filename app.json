@@ -1,9 +1,10 @@
 {
   "pages": [
+    "pages/Mine/Mine",
+    "pages/addpeople/addpeople",
     "pages/addpeopleinfo/addpeopleinfo",
     "pages/start/start",
     "pages/chat/chat",
-    "pages/addpeople/addpeople",
     "pages/weather/weather",
     "pages/sosphoto/sosphoto",
     "pages/join/join",
@@ -19,7 +20,6 @@
     "pages/sos/sos",
     "pages/phone/phone",
     "pages/autophoto/autophoto",
-    "pages/Mine/Mine",
     "pages/Index/Index",
     "pages/carnum/carnum",
     "pages/compass/compass",

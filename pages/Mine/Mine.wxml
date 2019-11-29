@@ -30,6 +30,10 @@
       <view class="profile-item">通知公告</view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
+  <view class="profile" catchtap="toHistory">
+      <view class="profile-item">爱心传音验证码</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view>
   <!-- <view class="profile" catchtap="toStarsRank">
       <view class="profile-item">幸运星排行榜</view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
@@ -44,10 +48,6 @@
   </view>
   <!-- <view class="profile" catchtap="toJoin">
       <view class="profile-item">申请加盟</view>
-      <image class="profile-arrow" src="/images/arrow.png"></image>
-  </view> -->
-  <!-- <view class="profile" catchtap="toHistory">
-      <view class="profile-item">传音历史纪录</view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view> -->
   <view class="profile" catchtap="toUse">
