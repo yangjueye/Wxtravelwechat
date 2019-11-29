@@ -6,7 +6,7 @@
       </view>
     </view>
       <text decode="{{true}}" class="ques-account">
-      尊敬的 &nbsp;{{userInfo.nickName}}：您好！\n
+      亲爱的 &nbsp;{{userInfo.nickName}}：您好！\n
        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;{{news}}
     </text> 
      <view class="ans-wrapper">

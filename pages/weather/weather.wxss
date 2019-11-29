@@ -10,7 +10,7 @@
     
 }
 page {
-  background:rgb(14, 89, 155);
+  background:#ffd311;
 }
 .background-imageday{
     height : 30px;

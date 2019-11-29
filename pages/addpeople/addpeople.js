@@ -19,7 +19,10 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
-        console.log(res.data);
+        console.log("后台返回数据："+res.data);
+        if (res.data.length==0){
+          console.log("后台返回数据空");
+        }
         that.setData({
           communications: res.data
         })

@@ -1,7 +1,6 @@
-      <text decode="{{true}}"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{gg}}</text>
-    <view class="ans-wrapper">
-   
-      <view  wx:for="{{imgalist}}"wx:for-item="image"class="previewimg">  
-  <image src="{{image}}" data-src="{{image}}" bindtap="previewImage" class='img'></image>  
-</view>  
-</view>  
+<text decode="{{true}}">{{gg}}</text>
+<view class="ans-wrapper">
+  <view wx:for="{{imgalist}}" wx:for-item="image" class="previewimg">
+    <image src="{{image}}" data-src="{{image}}" bindtap="previewImage" class='img'></image>
+  </view>
+</view>

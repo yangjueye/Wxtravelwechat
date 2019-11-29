@@ -6,10 +6,10 @@
       </view>
     </view>
       <text decode="{{true}}" class="ques-account">
-      尊敬的 &nbsp;&nbsp; {{userInfo.nickName}}：您好！\n &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;进入传音界面后请正确填写手机号和发送内容，确保内容健康积极向上，不含色情，辱骂，反动等敏感词汇，一经发现禁用账号，严重者上报司法机关！请自觉遵守相关法律法规！感谢您的支持！\n &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;发送频率限制:
-&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;对同一个手机号， 30秒 内发送短信条数不超过 1条
-&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;对同一个手机号， 1小时 内发送短信条数不超过 5条
-&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;对同一个手机号， 1个自然日 内发送短信条数不超过 10条 
+      亲爱的 &nbsp;&nbsp; {{userInfo.nickName}}：您好！\n &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;进入传音界面后请正确填写手机号和发送内容，确保内容健康积极向上，不含色情，辱骂，反动等敏感词汇，一经发现禁用账号，严重者上报司法机关！请自觉遵守相关法律法规！感谢您的支持！\n &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;发送频率限制:
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;对同一个手机号，30秒内发送短信条数不超过1条
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;对同一个手机号，1小时内发送短信条数不超过5条
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;对同一个手机号，1个自然日内发送短信条数不超过10条 
 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;每条内容限制字数，请合理安排，发送录音请按照界面提示操作,让我们大家一同创造良好的社会网络环境！
     </text>
     <view class="ans-wrapper">

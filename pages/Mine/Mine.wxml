@@ -35,7 +35,7 @@
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view> -->
      <view class="profile" catchtap="toAddpeople">
-      <view class="profile-item">紧急联系人</view>
+      <view class="profile-item">绑定紧急联系人</view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
   <view class="profile" catchtap="toAmbassador">

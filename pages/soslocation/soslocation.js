@@ -94,20 +94,16 @@ Page({
                   },
                   method: "GET",
                   success: function (res) {
-                    // console.log(res.data)
-                    if (res.data == "紧急发送成功！") {
+                     console.log("后台返回数据："+res.data)
+                    if (res.data == "恭喜传音成功！") {
                       wx.showToast({
                         title: res.data,
                         duration: 3000,
                         success: function () {
 
                           wx.switchTab({
-                            url: '../sos/sos',
+                            url: '../soslocation/soslocation',
                             success: function (e) {
-                              var page = getCurrentPages().pop();
-                              if (page == undefined || page == null) return;
-                              page.clearContents();
-
                             }
                           })
                           that.setData({
