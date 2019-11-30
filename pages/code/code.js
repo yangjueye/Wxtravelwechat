@@ -71,9 +71,9 @@ Page({
       method: "GET",
       success: function (res) {
         console.log("后台返回数据：" + res.data)
-        if (res.data == "添加成功！") {
+        if (res.data == "返回成功！") {
        that.setData({
-         codetext:res.data
+         codetext:'显示所啊但是发射点发射点发射点发射点发射点阿斯顿发射点啊手动阀手动阀啊打发士大夫阿迪斯法大师傅打发手动阀啥大事发生阿迪斯发的是'
        })
         } else {
           that.setData({
