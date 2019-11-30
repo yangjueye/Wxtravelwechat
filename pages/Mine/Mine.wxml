@@ -4,14 +4,12 @@
       <button class='bottom'  wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"><image style='width:25px;height:25px;top:2px;position:inherit'src='../../images/btn.png' mode='widthFix'></image><font style='color:white;'>微信授权登录</font></button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-       
      <text decode="{{true}}" class="userinfo-nickname">
      昵称：{{userInfo.nickName}}\n UID：{{uid}}
    会员等级：铜 \n连续打卡：{{sign}} 天 
    金币：{{dollar}}&nbsp; 幸运星：{{stars}} 颗
      </text>
      <view class="usermotto" >
-
      <button style="left:-50rpx;top:10rpx" disabled='{{disabled}}'hover-class="green"type="warn" bindtap="sign" size="mini">签到打卡</button> 
     <button style="center;top:10rpx"type="warn" bindtap="signtocash" size="mini">打卡兑换</button> 
     <button style="right:-50rpx;top:10rpx"type="warn" bindtap="startocash" size="mini">增加金币</button> 
@@ -23,14 +21,19 @@
     </view>
     </block>
   </view>
- 
 </view>
 <view class="account-wrapper">
+     <view wx:if="{{!hasUserInfo && canIUse}}"></view>
+    <block wx:else>
   <view class="profile" catchtap="toNews">
       <view class="profile-item">通知公告</view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
-  <view class="profile" catchtap="toHistory">
+  <!-- <view class="profile" catchtap="toHistory">
+      <view class="profile-item">传音历史纪录</view>
+      <image class="profile-arrow" src="/images/arrow.png"></image>
+  </view> -->
+  <view class="profile" catchtap="toCode">
       <view class="profile-item">爱心传音验证码</view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
@@ -54,5 +57,8 @@
       <view class="profile-item">用户须知</view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
+  <button type="warn" open-type="contact">联系客服</button>
+  </block>
 </view>
-<button type="warn" open-type="contact">联系客服</button>
+
+

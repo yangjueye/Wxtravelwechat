@@ -86,7 +86,6 @@ Page({
     //   }
     // });
     var that = this;
- 
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -314,6 +313,12 @@ Page({
   toHistory: function (e) {
     wx.navigateTo({
       url: '../History/History',
+    })
+  },
+  //爱心传音验证码
+  toCode: function (e) {
+    wx.navigateTo({
+      url: '../code/code',
     })
   },
  //用户须知

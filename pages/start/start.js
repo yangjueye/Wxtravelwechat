@@ -5,7 +5,7 @@ Page({
   data: {
     remind: '加载中',
     angle: 0,
-    year: 2017,
+    year: '',
     userInfo: {}
   },
 
@@ -14,19 +14,22 @@ Page({
       url: '/pages/weather/weather',
     });
   },
+  goToCode: function () {
+    wx.redirectTo({
+      url: '/pages/code/code',
+    });
+  },
   onLoad: function () {
     this.setData({
       year: new Date().getFullYear()
     });
   },
   onShow: function () {
-    console.log('onLoad')
-    var that = this
-    let userInfo = wx.getStorageSync('userInfo')
-    console.log(userInfo)
+  var that = this
+  let userInfo = wx.getStorageSync('userInfo')
+    // console.log(userInfo)
     if (!userInfo) {
       wx.switchTab({
-    
         url: "/pages/Mine/Mine"
       })
     } else {
@@ -47,7 +50,7 @@ Page({
       _this.setData({
         remind: ''
       });
-    }, 1000);
+    }, 800);
     wx.onAccelerometerChange(function (res) {
       var angle = -(res.x * 30).toFixed(1);
       if (angle > 14) { angle = 14; }

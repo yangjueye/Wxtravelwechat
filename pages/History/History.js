@@ -46,16 +46,19 @@ Page({
   refresh: function () {
     var that = this;
     wx.request({
-      url: 'https://jueyevip.top/queswerServer/listStories',
-      data: {},
+      url: ip + '/communication',
+      data: {
+        openid: wx.getStorageSync('openid')
+      },
       header: {//请求头
         "Content-Type": "applciation/json"
       },
       method: "GET",
       success: function (e) {
+        console.log("后台返回数据："+e.data[0].string)
         that.setData({
-          feed: e.data,
-          feed_length: e.data.length
+          feed: e.data[0],
+          feed_length: e.data[0].length
         });
         console.log(e);
       },
