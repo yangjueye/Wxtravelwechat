@@ -1,7 +1,7 @@
 <!--start.wxml-->
 <view class="container">
   <view class="remind-box" wx:if="{{remind}}">
-    <image class="remind-img" style="margin-top:50%;" src="/images/loading.gif"></image>
+    <image class="remind-img" style="margin-top:50%;left:10%;position:relative" src="/images/loading.gif"></image>
   </view>
   <block wx:else>
     <image class="title" src="/images/title8.png"></image>

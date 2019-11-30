@@ -129,10 +129,14 @@ Page({
         image: '/images/live.png',
         duration: 2000
       })
-    }else{
       wx.redirectTo
         ({
           url: "/pages/start/start"
+        })
+    }else{
+      wx.redirectTo
+        ({
+          url: "/pages/Mine/Mine"
         })
         var that = this;
         app.globalData.userInfo = e.detail.userInfo

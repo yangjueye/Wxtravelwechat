@@ -1,7 +1,8 @@
 <!--index.wxml-->
 <view class="container-mine">
   <view class="userinfo">
-      <button class='bottom'  wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"><image style='width:25px;height:25px;top:2px;position:inherit'src='../../images/btn.png' mode='widthFix'></image><font style='color:white;'>微信授权登录</font></button>
+      <!-- <button class='bottom'  wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"><image style='width:25px;height:25px;top:2px;position:inherit'src='../../images/btn.png' mode='widthFix'></image><font style='color:white;'>微信授权登录</font></button> -->
+      <view wx:if="{{!hasUserInfo && canIUse}}"></view>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
      <text decode="{{true}}" class="userinfo-nickname">
@@ -23,7 +24,10 @@
   </view>
 </view>
 <view class="account-wrapper">
-     <view wx:if="{{!hasUserInfo && canIUse}}"></view>
+     <view wx:if="{{!hasUserInfo && canIUse}}" class='v'>
+<image src='../../img/111.png' class="animationSlow"></image>
+    <button class='bottom'  wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"><image style='width:30px;height:30px;position:relative'src='../../images/btn.png' mode='widthFix'></image><font style='color:white;'>微信授权登录</font></button>
+</view>
     <block wx:else>
   <view class="profile" catchtap="toNews">
       <view class="profile-item">通知公告</view>

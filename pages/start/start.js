@@ -10,9 +10,16 @@ Page({
   },
 
   goToIndex: function () {
-    wx.switchTab({
-      url: '/pages/weather/weather',
-    });
+    let userInfo = wx.getStorageSync('userInfo')
+    if (!userInfo) {
+      wx.switchTab({
+        url: "/pages/Mine/Mine"
+      })
+    } else {
+      wx.switchTab({
+        url: '/pages/travel/travel',
+      })
+    }
   },
   goToCode: function () {
     wx.redirectTo({
@@ -25,24 +32,19 @@ Page({
     });
   },
   onShow: function () {
-  var that = this
-  let userInfo = wx.getStorageSync('userInfo')
+    var that = this
+    let userInfo = wx.getStorageSync('userInfo')
     // console.log(userInfo)
-    if (!userInfo) {
-      wx.switchTab({
-        url: "/pages/Mine/Mine"
-      })
-    } else {
+    // if (!userInfo) {
+    //   wx.switchTab({
+    //     url: "/pages/Mine/Mine"
+    //   })
+    // } else {
       that.setData({
         userInfo: userInfo
       })
-    }
-    // app.getUserInfo(function (userInfo) {
-    //   console.log('userInfo')
-    //   that.setData({
-    //     userInfo: userInfo
-    //   })
-    // })
+    // }
+
   },
   onReady: function () {
     var _this = this;

@@ -1,9 +1,9 @@
 /**index.wxss**/
+
 .userinfo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
 
 .userinfo-avatar {
@@ -19,40 +19,110 @@
   font-size: 34rpx;
 }
 
-.usermotto{
+.usermotto {
   margin-top: 10rpx;
   color: rgb(136, 136, 136);
   font-size: 24rpx;
 }
+
 .profile-wrapper, .account-wrapper {
-    background-color: rgb(255, 255, 255);
-    margin-bottom: 20rpx;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 20rpx;
 }
 
 .profile, .account {
-    display: flex;
-    padding: 30rpx;
-    align-items: center;
-    flex-direction: row;
-    border-bottom: 1rpx solid #f0f0f0;
+  display: flex;
+  padding: 30rpx;
+  align-items: center;
+  flex-direction: row;
+  border-bottom: 1rpx solid #f0f0f0;
 }
 
 .profile-item, .account-item {
-    flex: 1;
-    font-size: 30rpx;
+  flex: 1;
+  font-size: 30rpx;
 }
 
 .profile-arrow, .account-arrow {
-    width: 32rpx;
-    height: 32rpx;
+  width: 32rpx;
+  height: 32rpx;
 }
-.green{
+
+.green {
   background: rgb(6, 81, 241) !important;
 }
+
 .bottom {
-    border-radius: 80rpx;
-    margin: 30rpx 50rpx;
-    font-size: 35rpx;
-    
-     background: rgb(2, 187, 0);
+  /* border-radius: 80rpx;
+  margin: 20rpx 10rpx;
+  font-size: 35rpx;
+  z-index: 3;
+  background: rgb(2, 187, 0); */
+  position: fixed;
+  margin-top:65%;
+  background-color:rgb(2, 187, 0);
+  border-radius: 80px;
+  -webkit-backdrop-filter: blur(10px);
+  padding: 20px 10px;
+  z-index: 2;
+}
+
+.animationSlow {
+  /* 动画区 */
+  margin-top: -5555rpx; /* 高度的-1/2 或 者高一点 */
+  width: 10000rpx; /* 彩色背景大小 可自定义 */
+  height: 10000rpx; /* 彩色背景大小 可自定义 */
+  animation-name: myfirst;
+  animation-duration: 2000s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: myfirst;
+  -webkit-animation-duration: 8000ms; /* 速度 */
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  position: fixed;
+  z-index: 1;
+}
+
+/* .box {
+  margin-bottom: 60%;
+  margin-top:60%;
+  background-color: rgba(255, 255, 255, 0.315);
+  border-radius: 200px;
+  -webkit-backdrop-filter: blur(10px);
+  padding: 20px 20px;
+  z-index: 2;
+ 
+} */
+
+.v {
+  background-color: rgb(255, 255, 255);
+  margin: 0px auto auto;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes myfirst {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes myfirst {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
