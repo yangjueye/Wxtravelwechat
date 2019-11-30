@@ -93,7 +93,7 @@ Page({
   },
   calling: function() {
     var userphone = this.data.userphone;
-    console.log(userphone)
+    //console.log(userphone)
     if (userphone == null || userphone == 'undefined' || userphone == '') {
       wx.showToast({
         title: '号码空或有误！',

@@ -6,8 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    phone: '',
-    pname: '',
+    usercode: '',
+    codetext: '',
     isError: false,
     errorText: ''
   },
@@ -22,7 +22,7 @@ Page({
   /**
    * 输入验证码
    */
-  userPhoneInput: function (e) {
+  userCodeInput: function (e) {
     //正则判断手机号
     var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
     if (e.detail.value.length == 0) {
@@ -46,18 +46,16 @@ Page({
         duration: 1500
       })
       this.setData({
-        phone: e.detail.value,
+        usercode: e.detail.value,
         isError: false,
         errorText: ''
       })
     }
   },
-  /**
- * 点击保存按钮
- */
-  savepeople: function (item) {
+
+  submit: function (item) {
     var that = this;
-    if (this.data.phone === '') {
+    if (this.data.usercode === '') {
       this.setData({
         isError: true,
         errorText: "验证码不能为空"
@@ -66,20 +64,17 @@ Page({
     }
   
     wx.request({
-      url: ip + '/addpeople',
+      url: ip + '/showvoicecode',
       data: {
-        openid: wx.getStorageSync('openid'),
-        phone: this.data.phone,
-        pname: this.data.pname,
-        type: "add"
+        usercode: this.data.usercode
       },
       method: "GET",
       success: function (res) {
         console.log("后台返回数据：" + res.data)
         if (res.data == "添加成功！") {
-          wx.redirectTo({
-            url: '../addpeople/addpeople',
-          });
+       that.setData({
+         codetext:res.data
+       })
         } else {
           that.setData({
             isError: true,

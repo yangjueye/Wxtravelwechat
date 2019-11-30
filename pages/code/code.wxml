@@ -4,12 +4,12 @@
     <text class="app-title">我收到的爱心传音</text>
     <form class="login-form">
       <view class="section ">
-        <input name="phone " type="number " bindinput="userPhoneInput" maxlength="6 " placeholder="请输入爱心传音验证码 " />
+        <input name="usercode " type="number " bindinput="userCodeInput" maxlength="6 " placeholder="请输入爱心传音验证码 " />
       </view>
       <text class="{{ isError ? 'error' : ''}} ">{{errorText}}</text>
     </form>
     <view class="section ">
-      <button bindtap="savepeople">惊喜</button>
+      <button bindtap="submit">惊喜</button>
     </view>
   </view>
 </view>

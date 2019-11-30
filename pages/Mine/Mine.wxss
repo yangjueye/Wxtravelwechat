@@ -14,14 +14,15 @@
 }
 
 .userinfo-nickname {
-  color: rgb(255, 165, 79);
+  /* color: rgb(255, 165, 79); */
+  color: white;
   text-align: left;
   font-size: 34rpx;
 }
 
 .usermotto {
   margin-top: 10rpx;
-  color: rgb(136, 136, 136);
+ color: white;
   font-size: 24rpx;
 }
 
