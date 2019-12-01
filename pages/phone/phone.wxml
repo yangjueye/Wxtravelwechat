@@ -2,7 +2,6 @@
 <view class='messageView'>屏幕朝向:<text style='color:red;font-size:50rpx'>{{screen}}</text></view>
 <!-- alpha  number  当 手机坐标 X/Y 和 地球 X/Y 重合时，绕着 Z 轴转动的夹角为 alpha，范围值为 [0, 2*PI)。逆时针转动为正。 -->
 <view class='messageView'>当前为beta:{{beta}}</view>
-
 <button type='primary' bindtap='startScreenClick'>开启防盗</button>
 <button type='primary' bindtap='endScreenClick'>关闭防盗</button>
 

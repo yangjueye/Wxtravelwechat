@@ -239,8 +239,8 @@ Page({
         console.log("后台返回数据："+res.data.length);
         if (res.data.length==0) {
           wx.showModal({
-            title: '请您先添加紧急联系人！',
-            content: res.data,
+            title: '温馨提示',
+            content: '请您先添加紧急联系人！',
             showCancel: false,
             success: function (res) {
               if (res.confirm) { //这里是点击了确定以后

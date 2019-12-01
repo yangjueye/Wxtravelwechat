@@ -105,7 +105,15 @@ Page({
   onLoad: function (options) {
    
     var that = this;
-
+    wx.showModal({
+      title: '使用说明',
+      content: '开启防盗功能后，保持手机屏幕常亮，调整手机音量，不要退出当前界面，放入口袋以后只要重新拿出来手机就会触发报警铃声和紧急抓拍功能，提醒手机正在被人触碰！',
+      showCancel: false,
+      success: function (res) {
+        if (res.confirm) { //这里是点击了确定以后
+        }
+      }
+    })
     // alpha  number  当 手机坐标 X / Y 和 地球 X / Y 重合时，绕着 Z 轴转动的夹角为 alpha，范围值为[0, 2 * PI) 。逆时针转动为正。
     wx.onDeviceMotionChange(function (res) {
       var alpha = parseFloat(res.alpha);
