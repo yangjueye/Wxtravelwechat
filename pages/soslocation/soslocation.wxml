@@ -6,6 +6,6 @@
     
     
 </view>
-<button style="bottom:1%;left:0px;position:absolute;width:40%;background-color:#FF6600"type="primary" bindtap="sos" size="mini">定位发送</button>
+<button style="bottom:1%;left:0px;position:absolute;width:40%;background-color:#FF6600"type="primary" disabled='{{sms}}'bindtap="sos" size="mini">定位发送</button>
  
     <button style="bottom:1%;right:0px; position:absolute;width:40%;background-color:#FF6600"type="primary" bindtap="soscall" size="mini">紧急呼叫</button>

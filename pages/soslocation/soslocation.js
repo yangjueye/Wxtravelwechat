@@ -9,6 +9,7 @@ Page({
     latitude: '',
     longitude: '',
     userphone:'',
+    sms: '',
     textData: {}
   },
   onLoad: function () {
