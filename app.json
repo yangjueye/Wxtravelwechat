@@ -1,11 +1,11 @@
 {
   "pages": [
-      
+ "pages/code/code",
     "pages/start/start",
-"pages/Mine/Mine",
+    
+    "pages/Mine/Mine",
     "pages/addpeople/addpeople",
     "pages/addpeopleinfo/addpeopleinfo",
-   
     "pages/chat/chat",
     "pages/weather/weather",
     "pages/sosphoto/sosphoto",
@@ -74,8 +74,7 @@
     "pages/navigation_car_detail/navigation",
     "pages/navigation_ride_detail/navigation",
     "pages/navigation_walk_detail/navigation",
-    "pages/Use/Use",
-    "pages/code/code"
+    "pages/Use/Use"
   ],
   "window": {
     "backgroundTextStyle": "light",

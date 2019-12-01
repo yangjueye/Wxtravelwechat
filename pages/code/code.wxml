@@ -1,15 +1,23 @@
 <!--pages/addpeopleinfo/addpeopleinfo.wxml-->
-<view class="container">
-  <view class="login-container">
-    <text class="app-title">我收到的爱心传音</text>
-    <form class="login-form">
-      <view class="section ">
-        <input name="usercode " type="number " bindinput="userCodeInput" maxlength="6 " placeholder="请输入爱心传音验证码 " />
-      </view>
-      <text class="{{ isError ? 'error' : ''}} ">{{errorText}}</text>
-    </form>
-    <view class="section ">
-      <button bindtap="submit">惊喜</button>
-    </view>
-  </view>
+<view class='v'>
+  <image src='../../img/111.png' class="animationSlow"></image>
 </view>
+<view class="container">
+  <view class='box'>
+    <view class="login-container">
+      <form class="login-form">
+        <view class="section ">
+          <input name="usercode " type="number " bindinput="userCodeInput" maxlength="6 " placeholder="请输入爱心传音验证码 " />
+        </view>
+        <text class="{{ isError ? 'error' : ''}} ">{{errorText}}</text>
+      </form>
+    <view class="confirm-iswho" bindtap='iswho'>
+      <text>她/他是谁？</text>
+    </view>
+     <view class="confirm-codetext">
+      <text>{{codetext}}</text>
+      </view>
+    </view>
+    
+  </view>
+  </view>

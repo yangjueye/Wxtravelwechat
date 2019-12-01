@@ -1,73 +1,126 @@
-/* pages/addpeopleinfo/addpeopleinfo.wxss */
-/* pages/login/login.wxss */
+
 .container {
-    padding: 0;
-    background-color: #fff;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+
 }
 
-.login_bg{
-  height: 100%;
-  position: absolute
-}
+/* .box {
+  position: relative;
+  margin-top: 618rpx;
+  background-color: rgba(255, 255, 255, 0.315);
+  border-radius: 15px;
+  -webkit-backdrop-filter: blur(10px);
+  padding: 20px 40px;
+  z-index: 2;
+} */
 
 .login-container {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 0;
     transform: translateY(-80%);
     width: 100%;
+    z-index: 3;
 }
-
-.login-container .app-title {
-    display: block;
-    text-align: center;
-    font-size: 64rpx;
-    line-height: 72rpx;
-    margin-bottom: 80rpx;
-}
-
-.login-container .section {
-    width: 100%;
-}
-
 .login-container .section input {
   margin: 0 auto 40rpx;
   padding: 0 28rpx;
   width: 80%;
   height: 90rpx;
   line-height: 90rpx;
-  border: 2rpx solid #ccc;
+  border: 2rpx solid rgb(224, 224, 224);
   border-radius: 18rpx;
 	box-sizing: border-box;
-}
-
-.login-container .section button {
-    width: 80%;
-    height: 90rpx;
-    padding: 0;
-    margin: 10rpx auto 0;
-    font-size: 40rpx;
-    color: #fff;
-    line-height: 90rpx;
-    box-sizing: border-box;
-    border: none;
-    border-radius: 18rpx;
-    background: #2d8cf0;
-	cursor: pointer;
+  z-index: 3;
 }
 .login-form {
     position: relative;
     display:block;    
     padding-bottom: 20px;
+    z-index: 3;
 }
 .error {
     position: absolute;
     left: 10%;
     display: block;
     padding-left: 28rpx;
-    color: red;
+    color: rgb(252, 248, 248);
     height: 28rpx;
     font-size: 28rpx;
     line-height: 1;
     margin-top: -20rpx;
+    z-index: 3;
 }
+.confirm-iswho {
+  position: absolute;
+  font-size: 13pt;
+  line-height: 85rpx;
+  height: 85rpx;
+  width: 40%;
+  background: #ffd311;
+  color: #fff;
+  text-align: center;
+  border-radius: 50px;
+  margin: 1% 30%;
+}
+.confirm-codetext {
+  position: absolute;
+  margin: 15% 1%;
+  font-size: 13pt;
+  color:black;
+
+}
+.animationSlow {
+  /* 动画区 */
+  margin-top: -5555rpx; /* 高度的-1/2 或 者高一点 */
+  width: 10000rpx; /* 彩色背景大小 可自定义 */
+  height: 10000rpx; /* 彩色背景大小 可自定义 */
+  animation-name: myfirst;
+  animation-duration: 2000s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: myfirst;
+  -webkit-animation-duration: 8000ms; /* 速度 */
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  position: fixed;
+  z-index: 1;
+}
+
+.v {
+  background-color: rgb(255, 255, 255);
+  margin: 0px auto auto;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes myfirst {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes myfirst {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
