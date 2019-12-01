@@ -504,7 +504,7 @@ Page({
     var that = this
     wx.showModal({
       title: '温馨提示',
-      content: '您确定要清空所有记录包括录音吗？',
+      content: '您确定要清空所有记录吗？',
       success: function(res) {
         if (res.confirm) { //这里是点击了确定以后
           that.clearContents()

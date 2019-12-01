@@ -47,7 +47,7 @@
     left: 10%;
     display: block;
     padding-left: 28rpx;
-    color: rgb(252, 248, 248);
+    color: red;
     height: 28rpx;
     font-size: 28rpx;
     line-height: 1;

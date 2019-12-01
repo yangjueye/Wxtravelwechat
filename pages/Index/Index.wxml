@@ -25,17 +25,20 @@
     <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text>
     <text class="hint">{{texts}}</text>
   </textarea>
-  <button style="margin-top:6%;margin-left:5%;width:35%;background-color:#FF6600" type='primary' size="mini" bindtap="clearall">
+  <!-- <button style="margin-top:6%;margin-left:5%;width:35%;background-color:#FF6600" type='primary' size="mini" bindtap="clearall">
     重置清空
-  </button>
-  <button style="margin-top:6%;margin-left:19%;width:35%;background-color:#FF6600" type='primary' bindtap="toVoice" size="mini">
+  </button> -->
+  <!-- <button style="margin-top:6%;margin-left:19%;width:35%;background-color:#FF6600" type='primary' bindtap="toVoice" size="mini">
     录音
+  </button> -->
+  <button style="margin-top:6%;display:flex; justify-content:center;width:50%;background-color:#FF6600" type='primary' size="mini" bindtap="clearall">
+    重置清空
   </button>
 </view>
 <button style="top:20rpx;background-color:#3CB371;width:90%;" type='primary' disabled='{{sms}}' bindtap="orderMeeting">
   匿名短信
 </button>
 
-<button style="top:40rpx;background-color:#3CB371;width:90%;" type='primary' disabled='{{smsvoice}}' bindtap="orderMeetingVoice">
+<!-- <button style="top:40rpx;background-color:#3CB371;width:90%;" type='primary' disabled='{{smsvoice}}' bindtap="orderMeetingVoice">
   匿名短信+留声
-</button>
+</button> -->

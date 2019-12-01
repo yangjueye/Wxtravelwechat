@@ -1,8 +1,9 @@
 {
   "pages": [
- "pages/code/code",
     "pages/start/start",
+    "pages/soslocation/soslocation",
     
+    "pages/code/code",
     "pages/Mine/Mine",
     "pages/addpeople/addpeople",
     "pages/addpeopleinfo/addpeopleinfo",
@@ -55,7 +56,6 @@
     "pages/destination/destination",
     "pages/destinationsearch/destinationsearch",
     "pages/soscall/soscall",
-    "pages/soslocation/soslocation",
     "pages/humananalysis/humananalysis",
     "pages/humannumber/humannumber",
     "pages/driveanalysis/driveanalysis",

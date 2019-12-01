@@ -17,10 +17,9 @@
         <image class="smalltitle" src="/images/confirm-word1.png"></image>
         <view class="confirm-btn" bindtap='goToIndex'>
           <text>ITravel</text>
-         
         </view>
         <view class="confirm-btns" bindtap='goToCode'>
-          <text>爱心传音验证码</text>
+          <text>请输入爱心传音验证码</text>
         </view>
          <text class="copyright">© {{year}} ITravel智能出行家</text>
       </view>

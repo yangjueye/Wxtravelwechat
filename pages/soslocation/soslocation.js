@@ -8,10 +8,12 @@ Page({
     markers: [],
     latitude: '',
     longitude: '',
+    userphone:'',
     textData: {}
   },
   onLoad: function () {
     var that = this;
+    that.getUserPhone()
     var key = config.Config.key;
     var myAmapFun = new amapFile.AMapWX({ key: key });
     myAmapFun.getRegeo({
@@ -50,14 +52,13 @@ Page({
   },
   sos: function () {
     var that = this;
-   // var userphone = this.data.userphone;
-    var userphone = '15533532322';
+    if (that.data.userphone != null && that.data.userphone != 'undefined' && that.data.userphone != '') {
     var key = config.Config.key;
     var myAmapFun = new amapFile.AMapWX({ key: key });
     myAmapFun.getRegeo({
       success: function (lodata) {
         console.log(lodata[0].name)
-        var usercontens = '紧急定位救助-->' + lodata[0].name + lodata[0].desc;
+        var usercontens = '您的收到一条来自微信好友的紧急定位救助信息-->' + lodata[0].name + lodata[0].desc+'，请尽快联系好友确认是否需要帮助，以免耽误最佳时机！';
         //判断用户是否登陆
         if (app.globalData.userInfo) {
           that.setData({
@@ -86,7 +87,7 @@ Page({
                   url: ip + '/add', //本地服务器地址
                   data: {
                     openid: wx.getStorageSync('openid'),
-                    userphone: userphone,
+                    userphone: that.data.userphone,
                     usercontens: usercontens
                   },
                   header: {//请求头
@@ -214,10 +215,51 @@ Page({
         // wx.showModal({title:info.errMsg})
       }
     })
+    }
   },
   soscall: function () {
+    var that = this;
+    if (that.data.userphone != null && that.data.userphone != 'undefined' && that.data.userphone != ''){
     wx.makePhoneCall({
-      phoneNumber: '1**********' // 仅为示例，并非真实的电话号码
-    })
+      phoneNumber: that.data.userphone// 仅为示例，并非真实的电话号码
+    })}
   },
+  getUserPhone:function(){
+    var that = this;
+    wx.request({
+      url: ip + '/communication',
+      data: {
+        openid: wx.getStorageSync('openid')
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log("后台返回数据："+res.data.length);
+        if (res.data.length==0) {
+          wx.showModal({
+            title: '请您先添加紧急联系人！',
+            content: res.data,
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) { //这里是点击了确定以后
+                wx.redirectTo({
+                  url: '../addpeopleinfo/addpeopleinfo',
+                })
+                return
+              }
+            }
+          })
+        
+        } else {
+        that.setData({
+          userphone: res.data[0].string2
+        })}
+      },
+      fail: function (res) {
+        console.log(".....fail.....");
+      }
+    })
+  }
 })

@@ -28,7 +28,7 @@ Page({
     var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
     if (e.detail.value.length == 0) {
       wx.showToast({
-        title: '验证码为空',
+        title: '验证码为空！',
         image: '/images/eye.png',
         duration: 1000
       })
@@ -60,7 +60,7 @@ Page({
     if (this.data.usercode === '') {
       this.setData({
         isError: true,
-        errorText: "验证码不能为空"
+        errorText: "验证码不能为空！"
       })
       return;
     }
@@ -92,42 +92,55 @@ Page({
 
   },
 iswho:function(){
-  var that = this;
   if (this.data.usercode === '') {
     this.setData({
       isError: true,
-      errorText: "验证码不能为空"
+      errorText: "验证码不能为空！"
     })
     return;
   }
-  wx.request({
-    url: ip + '/showvoicecode',
-    data: {
-      usercode: that.data.usercode,
-      type:2
-    },
-    method: "GET",
-    success: function (res) {
-      console.log("后台返回数据：" + res.data)
-      wx.showModal({
-        title: '她/他的微信昵称',
-        content: res.data,
-        showCancel:false,
-        success: function (res) {
-          if (res.confirm) { //这里是点击了确定以后
-          }
-        }
+  let userInfo = wx.getStorageSync('userInfo')
+  if (!userInfo) {
+    wx.showToast({
+      title: '请先登录！',
+      duration: 2000,
+    })
+    setTimeout(function () {
+      wx.switchTab({
+        url: "/pages/Mine/Mine"
       })
-     
+    }, 1000);
+   
+  } else {
+    var that = this;
+    wx.request({
+      url: ip + '/showvoicecode',
+      data: {
+        usercode: that.data.usercode,
+        type: 2
+      },
+      method: "GET",
+      success: function (res) {
+        console.log("后台返回数据：" + res.data)
+        wx.showModal({
+          title: '她/他的微信昵称',
+          content: res.data,
+          showCancel: false,
+          success: function (res) {
+            if (res.confirm) { //这里是点击了确定以后
+            }
+          }
+        })
+      },
+      fail: function (item) {
 
-    },
-    fail: function (item) {
+      },
+      complete: function (item) {
 
-    },
-    complete: function (item) {
-
-    }
-  })
+      }
+    })
+  }
+  
 },
   /**
    * 生命周期函数--监听页面初次渲染完成
