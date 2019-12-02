@@ -123,7 +123,7 @@
   },
   "permission": {
     "scope.userLocation": {
-      "desc": "Just Do It!"
+      "desc": "你的位置信息将用于天气获取，地图导航，紧急定位发送!"
     }
   },
   "sitemapLocation": "sitemap.json"

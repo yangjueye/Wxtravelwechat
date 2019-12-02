@@ -213,7 +213,17 @@ Page({
 
       },
       fail: function (info) {
-        // wx.showModal({title:info.errMsg})
+         wx.showModal({
+           title: '温馨提示',
+           content: '定位权限获取失败，请重新获取权限再访问程序！',
+           success: function (res) {
+             if (res.confirm) {//这里是点击了确定以后    
+               wx.switchTab({
+                 url: '../sos/sos'
+               })
+             }
+           }
+           })
       }
     })
     }

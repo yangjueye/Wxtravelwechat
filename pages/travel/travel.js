@@ -11,6 +11,17 @@ Page({
     // textData: {}
   },
   onLoad: function () {
+    wx.getLocation({
+      type: 'gcj02',
+      success(res) {
+        const latitude = res.latitude
+        const longitude = res.longitude
+        console.log(latitude+","+longitude)
+      },
+      fail(error) {
+        throw new Error("获取位置信息失败...")
+      }
+    })
     // var that = this;
     // var key = config.Config.key;
     // var myAmapFun = new amapFile.AMapWX({ key: key });

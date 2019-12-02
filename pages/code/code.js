@@ -99,19 +99,7 @@ iswho:function(){
     })
     return;
   }
-  let userInfo = wx.getStorageSync('userInfo')
-  if (!userInfo) {
-    wx.showToast({
-      title: '请先登录！',
-      duration: 2000,
-    })
-    setTimeout(function () {
-      wx.switchTab({
-        url: "/pages/Mine/Mine"
-      })
-    }, 1000);
-   
-  } else {
+  if (app.globalData.userInfo) {
     var that = this;
     wx.request({
       url: ip + '/showvoicecode',
@@ -139,6 +127,17 @@ iswho:function(){
 
       }
     })
+  } else {
+    wx.showToast({
+      title: '请先登录！',
+      duration: 2000,
+    })
+    setTimeout(function () {
+      wx.switchTab({
+        url: "/pages/Mine/Mine"
+      })
+    }, 1000);
+
   }
   
 },
