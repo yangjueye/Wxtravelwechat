@@ -331,12 +331,21 @@ Page({
       url: '../Use/Use',
     })
   },
-  //增加传音
+  //金币权益
   startocash:function(){
   var that = this;
   that.setData({
     hiddenToast: false
   })
+    // wx.chooseMessageFile({
+    //   count: 10,
+    //   type: 'file',
+    //   success(res) {
+    //     console.log(res)
+    //     // tempFilePath可以作为img标签的src属性显示图片
+    //     const tempFilePaths = res.tempFilePaths
+    //   }
+    // })
   },
   //打卡兑换
   signtocash: function () {
