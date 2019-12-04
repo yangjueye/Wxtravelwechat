@@ -25,21 +25,18 @@ App({
                   country: res_user.userInfo.country,//获取国家
                   province: res_user.userInfo.province,//获取省份
                   city: res_user.userInfo.city,//获取城市
-                },
-            
+                },       
                 success: function (res) {
                  wx.setStorageSync('openid',res.data)
                   
                   // console.log(wx.getStorageSync('openid'))
                  // console.log(this.globalData.openid)
                 }
-              })
-            
+              })           
             }
           })
         }
       }
-
     }),
     // 获取用户信息
     wx.getSetting({
@@ -69,7 +66,7 @@ App({
     userInfo: null,
     code:null,
     openid:null,
-   ip: 'https://jueyevip.top/WxTravel'
-    // ip:'http://localhost:8080/WxTravel'
+  //  ip: 'https://jueyevip.top/WxTravel'
+    ip:'http://localhost:8080/WxTravel'
   }
 })
