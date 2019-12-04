@@ -225,6 +225,7 @@ Page({
   //后台返回各项刷新数据
   getUserDollar: function() {
     var that = this;
+    //console.log(wx.getStorageSync('openid'))
     wx.request({
       url: ip + '/getDollar', //本地服务器地址
       data: {
