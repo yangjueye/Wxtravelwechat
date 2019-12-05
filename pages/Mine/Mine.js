@@ -36,8 +36,7 @@ Page({
   onShow: function() {
     var that = this
     if (app.globalData.userInfo) {
-      this.getUserDollar();
-    }
+    that.onPullDownRefresh();
     //  setTimeout(function () {
     //    that.onShow()
     //  }, 100000)
@@ -51,6 +50,7 @@ Page({
       },
       method: "GET",
       success: function(res) {
+       // console.log(wx.getStorageSync('openid'))
         //var olddate = new Date(wx.getStorageSync('signtime'))
         var olddate = new Date(res.data.split("?")[4])
         var myOlddate = olddate.getFullYear() + '-' + (olddate.getMonth() + 1) + '-' + olddate.getDate()
@@ -73,7 +73,7 @@ Page({
         }
       },
     })
-
+    }
 
   },
   onLoad: function() {
@@ -86,12 +86,11 @@ Page({
     //   }
     // });
     var that = this;
-    if (app.globalData.userInfo) {
+    if (app.globalData.userInfo) {   
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       });
-      this.getUserDollar();
     } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
@@ -100,7 +99,6 @@ Page({
           userInfo: res.userInfo,
           hasUserInfo: true
         })
-        this.getUserDollar();
       }
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
@@ -111,10 +109,8 @@ Page({
             userInfo: res.userInfo,
             hasUserInfo: true
           })
-
         }
       })
-      this.getUserDollar();
     }
   },
   //获取用户登陆授权
@@ -225,6 +221,13 @@ Page({
   //后台返回各项刷新数据
   getUserDollar: function() {
     var that = this;
+    that.setData({
+      dollar: '',
+      stars: '',
+      uid:'',
+      sign: '',
+      mottou: ''
+    })
     //console.log(wx.getStorageSync('openid'))
     wx.request({
       url: ip + '/getDollar', //本地服务器地址
@@ -243,7 +246,7 @@ Page({
         var uodate = new Date(myOlddate)
         var undate = new Date(myDate)
         var result = (undate - uodate) / (1000 * 60 * 60 * 24)
-        console.log('result=', result)
+       // console.log('result=', result)
         if (result > 0) {
           that.setData({
             disabled: ''
@@ -367,20 +370,49 @@ Page({
   //刷新返回数据
   onPullDownRefresh: function() {
     var that =this;
+    if (app.globalData.userInfo) {
     // 动态设置导航条标题
     wx.setNavigationBarTitle({
       title: '获取数据.......'
     });
-    wx.showNavigationBarLoading();
-        //获取传音次数
-        this.getUserDollar();
+      wx.showNavigationBarLoading();
+      wx.login({
+        success: res => {
+          console.log(res)
+          wx.getUserInfo({
+            success: function (res_user) {
+              wx.request({
+                url: app.globalData.ip + '/showuser', //这里是本地请求路径,可以写你自己的本地路径,也可以写线上环境
+                data: {
+                  code: res.code,//获取openid的话 需要向后台传递code,利用code请求api获取openid
+                  headurl: res_user.userInfo.avatarUrl,//这些是用户的基本信息
+                  nickname: res_user.userInfo.nickName,//获取昵称
+                  sex: res_user.userInfo.gender,//获取性别
+                  country: res_user.userInfo.country,//获取国家
+                  province: res_user.userInfo.province,//获取省份
+                  city: res_user.userInfo.city,//获取城市
+                },
+                success: function (res) {
+                  wx.setStorageSync('openid', res.data)
+                  //获取传音次数
+                  that.getUserDollar();
+                  wx.hideNavigationBarLoading(); //完成停止加载
+                  // 动态设置导航条标题
+                  wx.setNavigationBarTitle({
+                    title: '我的'
+                  });
+                  wx.stopPullDownRefresh(); //停止下拉刷新
+                  
+                }
+              })
+            }
+          })
+      
+        }
+      })
+      
   
-    wx.hideNavigationBarLoading(); //完成停止加载
-    // 动态设置导航条标题
-    wx.setNavigationBarTitle({
-      title: '我的'
-    });
-    wx.stopPullDownRefresh(); //停止下拉刷新
+    }
   }
 
 })

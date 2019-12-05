@@ -12,6 +12,7 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         if (res.code) {
+         // console.log(res.code)
           this.globalData.code=res.code
           wx.getUserInfo({
             success: function (res_user) {
@@ -28,7 +29,7 @@ App({
                 },       
                 success: function (res) {
                  wx.setStorageSync('openid',res.data)
-                  
+                  that.globalData.openid=res.data
                   // console.log(wx.getStorageSync('openid'))
                  // console.log(this.globalData.openid)
                 }
