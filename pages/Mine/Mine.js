@@ -7,7 +7,7 @@ Page({
     mottoa: '私信助手@',
     mottou: '',
     userInfo: {},
-    userlevel:'',
+    userlevel: '',
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     //传音次数
@@ -37,49 +37,12 @@ Page({
   onShow: function() {
     var that = this
     if (app.globalData.userInfo) {
-    that.onPullDownRefresh();
-    //  setTimeout(function () {
-    //    that.onShow()
-    //  }, 100000)
-    wx.request({
-      url: ip + '/getDollar', //本地服务器地址
-      data: {
-        openid: wx.getStorageSync('openid')
-      },
-      header: { //请求头
-        "Content-Type": "applciation/json"
-      },
-      method: "GET",
-      success: function(res) {
-       // console.log(wx.getStorageSync('openid'))
-        //var olddate = new Date(wx.getStorageSync('signtime'))
-        var olddate = new Date(res.data.split("?")[4])
-        var myOlddate = olddate.getFullYear() + '-' + (olddate.getMonth() + 1) + '-' + olddate.getDate()
-        console.log(myOlddate)
-        var date = new Date();
-        var myDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
-        var uodate = new Date(myOlddate)
-        var undate = new Date(myDate)
-        var result = (undate - uodate) / (1000 * 60 * 60 * 24)
-        console.log('result=', result)
-        if (result > 0) {
-          that.setData({
-            disabled: ''
-          })
-        }
-        if (result == 0) {
-          that.setData({
-            disabled: 'true'
-          })
-        }
-      },
-    })
+      that.getUserDollar()
     }
-
   },
   onLoad: function() {
     var that = this;
-    if (app.globalData.userInfo) {   
+    if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
@@ -109,18 +72,8 @@ Page({
   //获取用户登陆授权
   getUserInfo: function(e) {
     var that = this;
-    if (e.detail.errMsg == 'getUserInfo:fail auth deny') {
-      wx.showToast({
-        title: '蓝瘦',
-        image: '/images/live.png',
-        duration: 2000
-      })
       wx.redirectTo({
         url: "/pages/start/start"
-      })
-    } else {
-      wx.redirectTo({
-        url: "/pages/Mine/Mine"
       })
       app.globalData.userInfo = e.detail.userInfo
       wx.setStorageSync('userInfo', e.detail.userInfo)
@@ -129,44 +82,43 @@ Page({
         hasUserInfo: true
       })
       this.onPullDownRefresh();
-          wx.request({
-            url: ip + '/getDollar', //本地服务器地址
-            data: {
-              openid: wx.getStorageSync('openid')
-            },
-            header: { //请求头
-              "Content-Type": "applciation/json"
-            },
-            method: "GET",
-            success: function(res) {
-              var olddate = new Date(res.data.split("?")[4])
-              var myOlddate = olddate.getFullYear() + '-' + (olddate.getMonth() + 1) + '-' + olddate.getDate()
-              var date = new Date();
-              var myDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
-              var uodate = new Date(myOlddate)
-              var undate = new Date(myDate)
-              var result = (undate - uodate) / (1000 * 60 * 60 * 24)
-              //console.log('result=', result)
-              if (result > 0) {
-                that.setData({
-                  disabled: ''
-                })
-              }
-              if (result == 0) {
-                that.setData({
-                  disabled: 'true'
-                })
-              }
-              that.setData({
-                dollar: res.data.split("?")[0],
-                stars: res.data.split("?")[1],
-                uid: res.data.split("?")[2],
-                sign: res.data.split("?")[3],
-                mottou: res.data.split("?")[5]
-              });
-            },
-          })
-    }
+      wx.request({
+        url: ip + '/getDollar', //本地服务器地址
+        data: {
+          openid: wx.getStorageSync('openid')
+        },
+        header: { //请求头
+          "Content-Type": "applciation/json"
+        },
+        method: "GET",
+        success: function(res) {
+          var olddate = new Date(res.data.split("?")[4])
+          var myOlddate = olddate.getFullYear() + '-' + (olddate.getMonth() + 1) + '-' + olddate.getDate()
+          var date = new Date();
+          var myDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
+          var uodate = new Date(myOlddate)
+          var undate = new Date(myDate)
+          var result = (undate - uodate) / (1000 * 60 * 60 * 24)
+          //console.log('result=', result)
+          if (result > 0) {
+            that.setData({
+              disabled: ''
+            })
+          }
+          if (result == 0) {
+            that.setData({
+              disabled: 'true'
+            })
+          }
+          that.setData({
+            dollar: res.data.split("?")[0],
+            stars: res.data.split("?")[1],
+            uid: res.data.split("?")[2],
+            sign: res.data.split("?")[3],
+            mottou: res.data.split("?")[5]
+          });
+        },
+      })
   },
   //签到打卡按钮
   sign: function() {
@@ -201,7 +153,7 @@ Page({
     that.setData({
       dollar: '',
       stars: '',
-      uid:'',
+      uid: '',
       sign: '',
       mottou: ''
     })
@@ -223,7 +175,7 @@ Page({
         var uodate = new Date(myOlddate)
         var undate = new Date(myDate)
         var result = (undate - uodate) / (1000 * 60 * 60 * 24)
-       // console.log('result=', result)
+        // console.log('result=', result)
         if (result > 0) {
           that.setData({
             disabled: ''
@@ -246,7 +198,7 @@ Page({
             disabled: ''
           })
         }
-        if (res.data.split("?")[1]<3000) {
+        if (res.data.split("?")[1] < 3000) {
           that.setData({
             userlevel: '铜'
           })
@@ -256,7 +208,7 @@ Page({
             userlevel: '银'
           })
         }
-        if (res.data.split("?")[1]>7000) {
+        if (res.data.split("?")[1] > 7000) {
           that.setData({
             userlevel: '金'
           })
@@ -325,15 +277,6 @@ Page({
     that.setData({
       hiddenToast: false
     })
-    // wx.chooseMessageFile({
-    //   count: 10,
-    //   type: 'file',
-    //   success(res) {
-    //     console.log(res)
-    //     // tempFilePath可以作为img标签的src属性显示图片
-    //     const tempFilePaths = res.tempFilePaths
-    //   }
-    // })
   },
   //打卡兑换
   signtocash: function() {
@@ -361,30 +304,30 @@ Page({
 
   //刷新返回数据
   onPullDownRefresh: function() {
-    var that =this;
+    var that = this;
     if (app.globalData.userInfo) {
-    // 动态设置导航条标题
-    wx.setNavigationBarTitle({
-      title: '获取数据.......'
-    });
+      // 动态设置导航条标题
+      wx.setNavigationBarTitle({
+        title: '获取数据.......'
+      });
       wx.showNavigationBarLoading();
       wx.login({
         success: res => {
           //console.log(res)
           wx.getUserInfo({
-            success: function (res_user) {
+            success: function(res_user) {
               wx.request({
                 url: app.globalData.ip + '/showuser', //这里是本地请求路径,可以写你自己的本地路径,也可以写线上环境
                 data: {
-                  code: res.code,//获取openid的话 需要向后台传递code,利用code请求api获取openid
-                  headurl: res_user.userInfo.avatarUrl,//这些是用户的基本信息
-                  nickname: res_user.userInfo.nickName,//获取昵称
-                  sex: res_user.userInfo.gender,//获取性别
-                  country: res_user.userInfo.country,//获取国家
-                  province: res_user.userInfo.province,//获取省份
-                  city: res_user.userInfo.city,//获取城市
+                  code: res.code, //获取openid的话 需要向后台传递code,利用code请求api获取openid
+                  headurl: res_user.userInfo.avatarUrl, //这些是用户的基本信息
+                  nickname: res_user.userInfo.nickName, //获取昵称
+                  sex: res_user.userInfo.gender, //获取性别
+                  country: res_user.userInfo.country, //获取国家
+                  province: res_user.userInfo.province, //获取省份
+                  city: res_user.userInfo.city, //获取城市
                 },
-                success: function (res) {
+                success: function(res) {
                   wx.setStorageSync('openid', res.data)
                   //获取传音次数
                   that.getUserDollar();
@@ -394,16 +337,16 @@ Page({
                     title: '我的'
                   });
                   wx.stopPullDownRefresh(); //停止下拉刷新
-                  
+
                 }
               })
             }
           })
-      
+
         }
       })
-      
-  
+
+
     }
   }
 
