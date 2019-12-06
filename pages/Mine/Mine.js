@@ -265,6 +265,12 @@ Page({
       url: '../code/code',
     })
   },
+  //每日分享
+  toShare: function (e) {
+    wx.navigateTo({
+      url: '../share/share',
+    })
+  },
   //用户须知
   toUse: function(e) {
     wx.navigateTo({

@@ -1,8 +1,9 @@
 {
   "pages": [
+    
     "pages/start/start",
     "pages/soslocation/soslocation",
-    
+    "pages/share/share",
     "pages/code/code",
     "pages/Mine/Mine",
     "pages/addpeople/addpeople",
