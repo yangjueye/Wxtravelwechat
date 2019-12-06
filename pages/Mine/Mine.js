@@ -7,6 +7,7 @@ Page({
     mottoa: '私信助手@',
     mottou: '',
     userInfo: {},
+    userlevel:'',
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     //传音次数
@@ -77,14 +78,6 @@ Page({
 
   },
   onLoad: function() {
-    // wx.startSoterAuthentication({
-    //   requestAuthModes: ['fingerPrint'],
-    //   challenge: '123456',
-    //   authContent: '请用指纹解锁',
-    //   success(res) {
-    //     console.log(res)
-    //   }
-    // });
     var that = this;
     if (app.globalData.userInfo) {   
       this.setData({
@@ -115,6 +108,7 @@ Page({
   },
   //获取用户登陆授权
   getUserInfo: function(e) {
+    var that = this;
     if (e.detail.errMsg == 'getUserInfo:fail auth deny') {
       wx.showToast({
         title: '蓝瘦',
@@ -128,26 +122,13 @@ Page({
       wx.redirectTo({
         url: "/pages/Mine/Mine"
       })
-      var that = this;
       app.globalData.userInfo = e.detail.userInfo
       wx.setStorageSync('userInfo', e.detail.userInfo)
       this.setData({
         userInfo: e.detail.userInfo,
         hasUserInfo: true
       })
-      wx.request({
-        url: ip + '/getOpenId', //这里是本地请求路径,可以写你自己的本地路径,也可以写线上环境
-        data: {
-          code: app.globalData.code, //获取openid的话 需要向后台传递code,利用code请求api获取openid
-          headurl: app.globalData.userInfo.avatarUrl, //这些是用户的基本信息
-          nickname: app.globalData.userInfo.nickName, //获取昵称
-          sex: app.globalData.userInfo.gender, //获取性别
-          country: app.globalData.userInfo.country, //获取国家
-          province: app.globalData.userInfo.province, //获取省份
-          city: app.globalData.userInfo.city, //获取城市
-        },
-        success: function(res) {
-          wx.setStorageSync('openid', res.data)
+      this.onPullDownRefresh();
           wx.request({
             url: ip + '/getDollar', //本地服务器地址
             data: {
@@ -165,7 +146,7 @@ Page({
               var uodate = new Date(myOlddate)
               var undate = new Date(myDate)
               var result = (undate - uodate) / (1000 * 60 * 60 * 24)
-              console.log('result=', result)
+              //console.log('result=', result)
               if (result > 0) {
                 that.setData({
                   disabled: ''
@@ -183,12 +164,8 @@ Page({
                 sign: res.data.split("?")[3],
                 mottou: res.data.split("?")[5]
               });
-
             },
           })
-        }
-      })
-
     }
   },
   //签到打卡按钮
@@ -267,6 +244,21 @@ Page({
         if (res.data.split("?")[3] == 0) {
           that.setData({
             disabled: ''
+          })
+        }
+        if (res.data.split("?")[1]<3000) {
+          that.setData({
+            userlevel: '铜'
+          })
+        }
+        if (res.data.split("?")[1] > 3000 && res.data.split("?")[1] < 7000) {
+          that.setData({
+            userlevel: '银'
+          })
+        }
+        if (res.data.split("?")[1]>7000) {
+          that.setData({
+            userlevel: '金'
           })
         }
       },
@@ -378,7 +370,7 @@ Page({
       wx.showNavigationBarLoading();
       wx.login({
         success: res => {
-          console.log(res)
+          //console.log(res)
           wx.getUserInfo({
             success: function (res_user) {
               wx.request({

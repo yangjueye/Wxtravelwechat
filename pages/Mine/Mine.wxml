@@ -7,7 +7,7 @@
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
      <text decode="{{true}}" class="userinfo-nickname">
      昵称：{{userInfo.nickName}}\n 账号：{{uid}}
-   会员等级：铜 \n连续打卡：{{sign}} 天 
+   会员等级：{{userlevel}} \n连续打卡：{{sign}} 天 
    金币：{{dollar}}\n成长值：{{stars}}
      </text>
      <view class="usermotto" >
