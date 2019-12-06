@@ -64,7 +64,7 @@ App({
     userInfo: null,
     code:null,
     openid:null,
-  //  ip: 'https://jueyevip.top/WxTravel'
-    ip:'http://localhost:8080/WxTravel'
+    ip: 'https://jueyevip.top/WxTravel'
+   // ip:'http://localhost:8080/WxTravel'
   }
 })
