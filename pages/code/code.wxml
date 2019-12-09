@@ -12,7 +12,7 @@
         <text class="{{ isError ? 'error' : ''}} ">{{errorText}}</text>
       </form>
     <view class="confirm-iswho" bindtap='iswho'>
-      <text>她/他是谁？</text>
+      <text>确认</text>
     </view>
      <view class="confirm-codetext">
       <text>{{codetext}}</text>

@@ -50,7 +50,7 @@
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
   <view class="profile" catchtap="toShare">
-      <view class="profile-item">每日分享</view>
+      <view class="profile-item">{{year}}每日分享</view>
       <image class="profile-arrow" src="/images/arrow.png"></image>
   </view>
   <view class="profile" catchtap="toAmbassador">
